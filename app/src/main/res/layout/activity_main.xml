@@ -94,13 +94,13 @@
         >
             <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="30dp"
                     android:layout_marginStart="8dp"
             >
-                <ImageView
-                        android:id="@+id/iconPhone"
+                <ImageButton
+                        android:id="@+id/imgBtnPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_call_black_24dp"
@@ -111,20 +111,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_contato"
-                        android:layout_alignBottom="@id/iconPhone"
+                        android:layout_alignBottom="@id/imgBtnPhone"
                         android:id="@+id/tvContato"
+                        android:layout_marginTop="8pt"
                 />
             </RelativeLayout>
 
             <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="30dp"
                     android:layout_marginStart="8dp"
             >
-                <ImageView
-                        android:id="@+id/iconPeople"
+                <ImageButton
+                        android:id="@+id/imgBtnPeople"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_people_black_24dp"
@@ -135,9 +136,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_quem_somos"
-                        android:layout_alignBottom="@id/iconPeople"
+                        android:layout_alignBottom="@id/imgBtnPeople"
                         android:id="@+id/tvQuemSomos"
+                        android:layout_marginTop="8pt"
                 />
+
             </RelativeLayout>
 
         </LinearLayout>
