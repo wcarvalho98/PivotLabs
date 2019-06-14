@@ -1,4 +1,3 @@
 package com.ufrpe.br.pivotlabs.login.data.model
 
-class Login {
-}
+class Login(email: String, password: String)

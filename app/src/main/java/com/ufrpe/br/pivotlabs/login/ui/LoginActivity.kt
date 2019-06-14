@@ -1,4 +1,4 @@
-package com.ufrpe.br.pivotlabs.login
+package com.ufrpe.br.pivotlabs.login.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
