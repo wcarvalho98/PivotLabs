@@ -5,11 +5,29 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="welcome">"Bem Vindo!"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="paciente">Paciente</string>
+    <string name="profissional">Profissional</string>
+
+    <string name="txt_agede_consulta">AGENDE SUA CONSULTA</string>
+
+
+    <string name="txt_contato">Contato</string>
+    <string name="txt_quem_somos">Quem Somos</string>
+
+
+    <!--Informacoes extras-->
+    <string name="email_address">pivotlabs@gmail.com</string>
+
+
+    <!--Activity Quem somos-->
+    <string name="textao_quem_somos">
+        Somos uma empresa de tecnologia que visa construir um mundo melhor através do bem estar e comodidades as
+        pessoas.
+        Trazendo inovação aliado a sustentabilidade.
+    </string>
 </resources>
