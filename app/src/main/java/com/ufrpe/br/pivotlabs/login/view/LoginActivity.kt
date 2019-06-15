@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar
 import android.view.Gravity
 import android.view.View
 import android.view.View.*
+import com.squareup.picasso.Picasso
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.LoginMVP.PresenterImpl
@@ -26,6 +27,7 @@ class LoginActivity : AppCompatActivity(), LoginMVP.ViewImpl {
 
         presenter.setView(this)
         btLogin.setOnClickListener { login() }
+
     }
 
     override fun showProgressBar(visible: Int) {

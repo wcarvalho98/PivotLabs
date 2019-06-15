@@ -31,12 +31,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:gravity="center_horizontal" android:id="@+id/llContent"
         >
-            <TextView
-                    android:text="@string/app_name"
+            <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView" android:textColor="@android:color/white" android:textSize="42sp"
-                    android:textStyle="bold" android:textAllCaps="false" android:layout_marginBottom="8dp"/>
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/pivot"
+                    android:id="@+id/imageView"
+                    android:layout_marginBottom="10dp"/>
             <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -60,11 +59,12 @@
             <Button
                     android:text="@string/action_sign_in_short"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/btLogin" android:backgroundTint="#64FFDA"
+                    android:layout_height="wrap_content" android:id="@+id/btLogin"
                     android:textAllCaps="false" android:foregroundGravity="center_horizontal"
-                    android:includeFontPadding="true" android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp" android:layout_marginTop="8dp"
-            />
+                    android:includeFontPadding="true" android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp" android:layout_marginTop="8dp"
+                    android:background="@drawable/btn_rounded"
+                    android:layout_marginBottom="8dp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
     <LinearLayout
