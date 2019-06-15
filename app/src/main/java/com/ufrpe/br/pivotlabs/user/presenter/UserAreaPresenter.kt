@@ -1,4 +1,4 @@
-package com.ufrpe.br.pivotlabs.user.ui
+package com.ufrpe.br.pivotlabs.user.presenter
 
 class UserAreaPresenter {
 }
