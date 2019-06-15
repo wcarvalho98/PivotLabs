@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".login.ui.LoginActivity" android:paddingVertical="12dp">
+        tools:context=".login.view.LoginActivity" android:paddingVertical="12dp">
 
     <android.support.v7.widget.CardView
             android:layout_width="0dp"
@@ -35,7 +35,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/prompt_email" android:inputType="textEmailAddress"
-                        android:paddingStart="8dp"/>
+                        android:paddingStart="8dp" android:id="@+id/tvEmail"/>
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -45,15 +45,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/prompt_password" android:inputType="textPassword"
-                        android:paddingStart="8dp"/>
+                        android:paddingStart="8dp" android:id="@+id/tvPassword"/>
             </android.support.design.widget.TextInputLayout>
             <Button
                     android:text="@string/action_sign_in_short"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/button" android:backgroundTint="#64FFDA"
+                    android:layout_height="wrap_content" android:id="@+id/btLogin" android:backgroundTint="#64FFDA"
                     android:textAllCaps="false" android:foregroundGravity="center_horizontal"
                     android:includeFontPadding="true" android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp" android:layout_marginTop="8dp"/>
+                    android:layout_marginRight="16dp" android:layout_marginTop="8dp"
+                    android:onClick="login"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
     <LinearLayout

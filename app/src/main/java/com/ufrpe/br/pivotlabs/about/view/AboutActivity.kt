@@ -1,13 +1,13 @@
-package com.ufrpe.br.pivotlabs.login.ui
+package com.ufrpe.br.pivotlabs.about.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.ufrpe.br.pivotlabs.R
 
-class LoginActivity : AppCompatActivity() {
+class AboutActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_about)
     }
 }

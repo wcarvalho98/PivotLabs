@@ -1,4 +1,4 @@
-package com.ufrpe.br.pivotlabs
+package com.ufrpe.br.pivotlabs.main.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

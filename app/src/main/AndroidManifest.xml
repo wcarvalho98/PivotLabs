@@ -11,11 +11,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".QuemSomosActivity">
+        <activity android:name=".about.view.AboutActivity">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".main.view.MainActivity">
         </activity>
-        <activity android:name=".login.ui.UserArea">
+        <activity android:name=".user.view.UserAreaActivity">
         </activity>
         <activity android:name=".login.ui.AreaUsuarioActivity">
         </activity>
@@ -24,7 +24,7 @@
                 android:label="@string/title_activity_filtragem"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".login.ui.LoginActivity">
+        <activity android:name=".login.view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
