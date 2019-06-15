@@ -3,12 +3,8 @@ package com.ufrpe.br.pivotlabs.login.view
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.service.autofill.CharSequenceTransformation
 import android.support.design.widget.Snackbar
-import android.view.Gravity
-import android.view.View
-import android.view.View.*
-import com.squareup.picasso.Picasso
+import com.ufrpe.br.pivotlabs.Glide.GlideApp
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.LoginMVP.PresenterImpl
@@ -27,7 +23,10 @@ class LoginActivity : AppCompatActivity(), LoginMVP.ViewImpl {
 
         presenter.setView(this)
         btLogin.setOnClickListener { login() }
-
+        GlideApp.with(this)
+            .load(R.drawable.pivot)
+            .circleCrop()
+            .into(ivPivot)
     }
 
     override fun showProgressBar(visible: Int) {
