@@ -17,13 +17,6 @@
         </activity>
         <activity android:name=".user.view.UserAreaActivity">
         </activity>
-        <activity android:name=".login.ui.AreaUsuarioActivity">
-        </activity>
-        <activity
-                android:name=".login.ui.FiltragemActivity"
-                android:label="@string/title_activity_filtragem"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <activity android:name=".login.view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

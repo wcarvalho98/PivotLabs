@@ -19,20 +19,25 @@ class LoginActivity : AppCompatActivity(), LoginMVP.ViewImpl {
         setContentView(R.layout.activity_login)
 
         presenter.setView(this)
+        btLogin.setOnClickListener { login() }
     }
 
     override fun showProgressBar(visible: Int) {
-
+        pbLoading.visibility = visible
     }
 
-    override fun emailError() {
+    override fun showLinearLayout(visible: Int) {
+        llContent.visibility = visible
+    }
+
+    override fun emailError(error: String) {
         tvEmail.requestFocus()
-        tvEmail.error
+        tvEmail.error = error
     }
 
-    override fun passwordError() {
+    override fun passwordError(error: String) {
         tvPassword.requestFocus()
-        tvPassword.error
+        tvPassword.error = error
     }
 
     fun login() {

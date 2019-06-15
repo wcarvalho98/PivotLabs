@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "770139735483",
+    "firebase_url": "https://pivotlabs-7.firebaseio.com",
+    "project_id": "pivotlabs-7",
+    "storage_bucket": "pivotlabs-7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770139735483:android:6a59e964ce2399eb",
+        "android_client_info": {
+          "package_name": "com.ufrpe.br.pivotlabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770139735483-bgqs1n08d0sq8lhqrbm76eem730s25ov.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ufrpe.br.pivotlabs",
+            "certificate_hash": "318900c5252b4ebbea692ceef21735f89a89c273"
+          }
+        },
+        {
+          "client_id": "770139735483-7i5lpa96sn73mfai85ems0luuravqmeh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbj222y01ZSJAtShEzzjrzNxCO6Is3IjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770139735483-7i5lpa96sn73mfai85ems0luuravqmeh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

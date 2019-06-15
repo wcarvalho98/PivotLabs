@@ -1,6 +1,7 @@
 package com.ufrpe.br.pivotlabs.login.presenter
 
 import android.view.View
+import com.google.firebase.auth.FirebaseAuth
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.model.LoginImpl
 
@@ -9,15 +10,37 @@ class LoginPresenter : LoginMVP.PresenterImpl {
     private lateinit var view: LoginMVP.ViewImpl
 
     override fun login(email: String, password: String) {
+        showUI(false)
+        var error = false
         if (email.isBlank()) {
-            view.emailError()
-            return
+            view.emailError("Email required")
+            error = true
         }
-        if (password.isBlank()) {
-            view.passwordError()
+        if (!error && !email.contains("@")) {
+            view.emailError("Invalid email entry")
+            error = true
+        }
+        if (!error && password.isBlank()) {
+            view.passwordError("Password required")
+            error = true
+        }
+        if (!error && password.length < 4) {
+            view.passwordError("Invalid password entry")
+            error = true
+        }
+        if (error) {
+            showUI(true)
             return
         }
         model.login(email, password)
+    }
+
+    override fun setUserName(name: String) {
+        showUI(false)
+        if (name.isBlank()) {
+            showUI(true)
+            return
+        }
     }
 
     override fun logout() {
@@ -28,13 +51,15 @@ class LoginPresenter : LoginMVP.PresenterImpl {
         this.view = view
     }
 
-    override fun getEmail(): String {
-        return model.getEmail()
+    override fun getUser(): FirebaseAuth {
+        return model.getUser()
     }
 
-    override fun showProgressBar(status: Boolean) {
-        var visible = if (status) View.VISIBLE else View.GONE
+    override fun showUI(status: Boolean) {
+        var visible = if (!status) View.VISIBLE else View.GONE
         view.showProgressBar(visible)
+        visible = if (status) View.VISIBLE else View.INVISIBLE
+        view.showLinearLayout(visible)
     }
 
 }
