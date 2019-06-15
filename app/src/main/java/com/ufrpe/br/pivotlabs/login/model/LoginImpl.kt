@@ -13,9 +13,9 @@ class LoginImpl(var presenter: LoginMVP.PresenterImpl) : LoginMVP.ModelImpl {
             .addOnCompleteListener { task ->
                 presenter.showUI(true)
                 if (task.isSuccessful) {
-
+                    presenter.mainScreen()
                 } else {
-
+                    presenter.makeSnackbar("User doesn't exist")
                 }
             }
     }
@@ -28,9 +28,9 @@ class LoginImpl(var presenter: LoginMVP.PresenterImpl) : LoginMVP.ModelImpl {
             ?.addOnCompleteListener { task ->
             presenter.showUI(false)
             if (task.isSuccessful) {
-
+                presenter.mainScreen()
             } else {
-
+                presenter.makeSnackbar("Wasn't possible to set user name")
             }
         }
     }

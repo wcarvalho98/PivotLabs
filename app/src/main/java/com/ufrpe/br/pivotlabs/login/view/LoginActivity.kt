@@ -1,13 +1,19 @@
 package com.ufrpe.br.pivotlabs.login.view
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.service.autofill.CharSequenceTransformation
+import android.support.design.widget.Snackbar
+import android.view.Gravity
+import android.view.View
+import android.view.View.*
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.LoginMVP.PresenterImpl
 import com.ufrpe.br.pivotlabs.login.presenter.LoginPresenter
+import com.ufrpe.br.pivotlabs.main.view.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.tvEmail
 
 class LoginActivity : AppCompatActivity(), LoginMVP.ViewImpl {
@@ -40,7 +46,19 @@ class LoginActivity : AppCompatActivity(), LoginMVP.ViewImpl {
         tvPassword.error = error
     }
 
-    fun login() {
+    override fun mainScreen() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        this.finish()
+    }
+
+    override fun makeSnackbar(text: String) {
+        var snack = Snackbar.make(this.textView3, text, Snackbar.LENGTH_LONG)
+        snack.view.setBackgroundColor(getColor(R.color.white))
+        snack.show()
+    }
+
+    private fun login() {
         presenter.login(tvEmail.text.toString(), tvPassword.text.toString())
     }
 }

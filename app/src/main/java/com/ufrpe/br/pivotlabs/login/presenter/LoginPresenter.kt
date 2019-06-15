@@ -55,6 +55,14 @@ class LoginPresenter : LoginMVP.PresenterImpl {
         return model.getUser()
     }
 
+    override fun mainScreen() {
+        view.mainScreen()
+    }
+
+    override fun makeSnackbar(text: String) {
+        view.makeSnackbar(text)
+    }
+
     override fun showUI(status: Boolean) {
         var visible = if (!status) View.VISIBLE else View.GONE
         view.showProgressBar(visible)
