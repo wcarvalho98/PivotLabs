@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main.view.MainActivity">
+        tools:context=".main.view.MainActivity" android:background="@drawable/background_default_color">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -16,22 +16,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="64dp">
+            android:layout_marginTop="90dp" android:paddingVertical="16dp" android:layout_marginHorizontal="8dp">
 
 
         <!--Cabecalho-->
         <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="@color/colorPrimary"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@color/colorPrimaryLight"
                 app:cardCornerRadius="16dp"
         >
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:orientation="vertical"
                           android:gravity="center_horizontal"
-            >
+                          android:paddingVertical="16dp">
 
                 <!--Botoes Paciente & Profissional-->
                 <LinearLayout
@@ -49,7 +48,7 @@
                             android:background="@drawable/btn_rounded"
                             android:layout_weight="1" android:textAllCaps="false"
                             android:layout_marginHorizontal="8dp" android:layout_marginVertical="8dp"
-                            android:backgroundTint="@color/colorPrimaryLight"/>
+                            android:backgroundTint="@color/colorPrimary"/>
                     <Button
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -58,7 +57,7 @@
 
                             android:layout_weight="1" android:background="@drawable/btn_rounded"
                             android:textAllCaps="false" android:layout_marginHorizontal="8dp"
-                            android:layout_marginVertical="8dp" android:backgroundTint="@color/colorPrimaryLight"/>
+                            android:layout_marginVertical="8dp" android:backgroundTint="@color/colorPrimary"/>
                 </LinearLayout>
 
                 <!--Texto bem vindo-->
@@ -85,7 +84,7 @@
                             android:text="@string/txt_agede_consulta"
                             android:layout_marginHorizontal="8dp" android:layout_marginVertical="8dp"
                             android:background="@drawable/btn_rounded" android:textAllCaps="false"
-                            android:backgroundTint="@color/colorPrimaryLight"/>
+                            android:backgroundTint="@color/colorPrimary"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -93,68 +92,71 @@
 
         <!--Segundo Cabecalho-->
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
-                      android:gravity="center"
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:gravity="center"
 
-                      android:paddingVertical="8dp" android:layout_marginHorizontal="32dp"
-                      android:layout_marginVertical="8dp">
-            <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1">
+                  android:paddingVertical="8dp" android:layout_marginHorizontal="32dp"
+                  android:layout_marginVertical="8dp"
+                  app:layout_constraintBottom_toTopOf="@+id/footMainActivity"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent" android:baselineAligned="false">
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1">
 
-                <ImageButton
-                        android:id="@+id/imgBtnPhone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_call_black_24dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/tvContato"
-                        android:background="@drawable/btn_rounded" android:paddingHorizontal="12dp"
-                        android:paddingVertical="12dp" android:layout_margin="8dp"
-                        android:backgroundTint="@color/colorPrimaryLight"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/txt_contato"
-                        android:id="@+id/tvContato"
-                        android:textSize="24sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imgBtnPhone"
-                        app:layout_constraintEnd_toEndOf="parent"/>
-            </android.support.constraint.ConstraintLayout>
+            <ImageButton
+                    android:id="@+id/imgBtnPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_call_black_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvContato"
+                    android:background="@drawable/btn_rounded" android:paddingHorizontal="12dp"
+                    android:paddingVertical="12dp" android:layout_margin="8dp"
+                    android:backgroundTint="@color/colorPrimary"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_contato"
+                    android:id="@+id/tvContato"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgBtnPhone"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
 
-            <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1">
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1">
 
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/txt_quem_somos"
-                        android:id="@+id/tvQuemSomos"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imgBtnPeople"
-                        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                />
-                <ImageButton
-                        android:id="@+id/imgBtnPeople"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_people_black_24dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/tvQuemSomos"
-                        android:background="@drawable/btn_rounded" android:paddingHorizontal="12dp"
-                        android:paddingVertical="12dp" android:layout_margin="8dp"
-                        android:backgroundTint="@color/colorPrimaryLight"/>
-            </android.support.constraint.ConstraintLayout>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_quem_somos"
+                    android:id="@+id/tvQuemSomos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgBtnPeople"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            />
+            <ImageButton
+                    android:id="@+id/imgBtnPeople"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_people_black_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvQuemSomos"
+                    android:background="@drawable/btn_rounded" android:paddingHorizontal="12dp"
+                    android:paddingVertical="12dp" android:layout_margin="8dp"
+                    android:backgroundTint="@color/colorPrimary"/>
+        </android.support.constraint.ConstraintLayout>
 
-        </LinearLayout>
     </LinearLayout>
     <!--Rodape-->
     <RelativeLayout

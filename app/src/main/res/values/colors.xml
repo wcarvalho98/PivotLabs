@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!--Cores Primarias-->
     <color name="colorPrimary">#66bb6a</color>
     <color name="colorPrimaryLight">#98ee99</color>
@@ -19,4 +18,5 @@
 
     <color name="primaryButtonColor">#64FFDA</color>
     <color name="colorAccent">#D81B60</color>
+
 </resources>
