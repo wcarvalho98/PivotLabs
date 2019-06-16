@@ -5,14 +5,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".login.view.LoginActivity" android:paddingVertical="12dp"
-        android:background="@drawable/background_default_color">
+        tools:context=".login.view.UserExistActivity" android:background="@drawable/background_default_color"
+        android:paddingVertical="12dp">
 
     <ProgressBar
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/pbLoading"
+            android:id="@+id/pbLoading2"
             android:visibility="gone"
             android:elevation="20dp" app:layout_constraintTop_toTopOf="@+id/cardView"
             app:layout_constraintBottom_toBottomOf="@+id/cardView" app:layout_constraintStart_toStartOf="@+id/cardView"
@@ -33,36 +33,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:gravity="center_horizontal" android:id="@+id/llContent"
         >
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp" app:srcCompat="@drawable/pivot"
-                    android:id="@+id/ivPivot"
-                    android:layout_marginBottom="10dp"
-                    android:cropToPadding="true" android:scaleType="fitXY"/>
+            <TextView
+                    android:text="Set your user name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"
+                    android:textAlignment="center"/>
             <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:paddingTop="8dp" android:layout_marginTop="4dp">
+                    android:layout_height="match_parent" android:paddingTop="8dp" android:layout_marginTop="8dp">
 
                 <android.support.design.widget.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/prompt_email" android:inputType="textEmailAddress"
-                        android:paddingStart="8dp" android:id="@+id/tvEmail"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:paddingTop="8dp">
-
-                <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/prompt_password" android:inputType="textPassword"
-                        android:paddingStart="8dp" android:id="@+id/tvPassword"/>
+                        android:hint="User name" android:inputType="textEmailAddress"
+                        android:id="@+id/tvUserName"/>
             </android.support.design.widget.TextInputLayout>
             <Button
-                    android:text="@string/action_sign_in_short"
+                    android:text="Set user name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/btLogin"
+                    android:layout_height="wrap_content" android:id="@+id/btSetUser"
                     android:textAllCaps="false" android:foregroundGravity="center_horizontal"
                     android:includeFontPadding="true" android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp" android:layout_marginTop="8dp"

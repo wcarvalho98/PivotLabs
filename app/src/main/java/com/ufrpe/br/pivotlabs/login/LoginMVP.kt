@@ -1,6 +1,8 @@
 package com.ufrpe.br.pivotlabs.login
 
 import com.google.firebase.auth.FirebaseAuth
+import com.ufrpe.br.pivotlabs.login.view.LoginActivity
+import com.ufrpe.br.pivotlabs.login.view.UserExistActivity
 
 interface LoginMVP {
 
@@ -16,19 +18,33 @@ interface LoginMVP {
         fun logout()
         fun getUser(): FirebaseAuth
         fun setUserName(name: String)
-        fun setView(view: ViewImpl)
-        fun showUI(status: Boolean)
-        fun mainScreen()
-        fun makeSnackbar(text: String)
+        fun setView(view: LoginActivity)
+        fun setView(view: UserExistActivity)
+        fun makeLoginSnackbar(text: String)
+        fun loginMainScreen()
+        fun userMainScreen()
+        fun makeUserSnackbar(text: String)
+        fun showLoginUI(status: Boolean)
+        fun showUserUI(status: Boolean)
+        fun showUserScreen()
     }
 
-    interface ViewImpl {
+    interface LoginActivityImpl {
         fun showProgressBar(visible: Int)
         fun showLinearLayout(visible: Int)
-        fun emailError(error: String)
-        fun passwordError(error: String)
         fun mainScreen()
         fun makeSnackbar(text: String)
+        fun emailError(error: String)
+        fun passwordError(error: String)
+        fun userExistScreen()
+    }
+
+    interface UserExistActivityImpl {
+        fun showProgressBar(visible: Int)
+        fun showLinearLayout(visible: Int)
+        fun mainScreen()
+        fun makeSnackbar(text: String)
+        fun userError(error: String)
     }
 
 }

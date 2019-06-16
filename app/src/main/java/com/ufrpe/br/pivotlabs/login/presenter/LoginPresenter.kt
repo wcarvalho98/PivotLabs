@@ -4,70 +4,98 @@ import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.model.LoginImpl
+import com.ufrpe.br.pivotlabs.login.view.LoginActivity
+import com.ufrpe.br.pivotlabs.login.view.UserExistActivity
 
 class LoginPresenter : LoginMVP.PresenterImpl {
     private var model: LoginMVP.ModelImpl = LoginImpl(this)
-    private lateinit var view: LoginMVP.ViewImpl
+    private lateinit var loginView: LoginMVP.LoginActivityImpl
+    private lateinit var userView: LoginMVP.UserExistActivityImpl
 
     override fun login(email: String, password: String) {
-        showUI(false)
+        showLoginUI(false)
         var error = false
         if (email.isBlank()) {
-            view.emailError("Email required")
+            loginView.emailError("Email required")
             error = true
         }
         if (!error && !email.contains("@")) {
-            view.emailError("Invalid email entry")
+            loginView.emailError("Invalid email entry")
             error = true
         }
         if (!error && password.isBlank()) {
-            view.passwordError("Password required")
+            loginView.passwordError("Password required")
             error = true
         }
-        if (!error && password.length < 4) {
-            view.passwordError("Invalid password entry")
+        if (!error && password.length < 6) {
+            loginView.passwordError("Invalid password entry")
             error = true
         }
         if (error) {
-            showUI(true)
+            showLoginUI(true)
             return
         }
         model.login(email, password)
     }
 
     override fun setUserName(name: String) {
-        showUI(false)
+        showUserUI(false)
         if (name.isBlank()) {
-            showUI(true)
+            userView.userError("Invalid user name")
+            showUserUI(true)
             return
         }
+        model.setUserName(name)
     }
 
     override fun logout() {
         model.logout()
     }
 
-    override fun setView(view: LoginMVP.ViewImpl) {
-        this.view = view
+    override fun setView(view: LoginActivity) {
+        this.loginView = view
+    }
+
+    override fun setView(view: UserExistActivity) {
+        this.userView = view
     }
 
     override fun getUser(): FirebaseAuth {
         return model.getUser()
     }
 
-    override fun mainScreen() {
-        view.mainScreen()
+    override fun loginMainScreen() {
+        loginView.mainScreen()
     }
 
-    override fun makeSnackbar(text: String) {
-        view.makeSnackbar(text)
+    override fun userMainScreen() {
+        userView.mainScreen()
     }
 
-    override fun showUI(status: Boolean) {
+    override fun makeLoginSnackbar(text: String) {
+        loginView.makeSnackbar(text)
+    }
+
+    override fun makeUserSnackbar(text: String) {
+        userView.makeSnackbar(text)
+    }
+
+    override fun showLoginUI(status: Boolean) {
         var visible = if (!status) View.VISIBLE else View.GONE
-        view.showProgressBar(visible)
+        loginView.showProgressBar(visible)
         visible = if (status) View.VISIBLE else View.INVISIBLE
-        view.showLinearLayout(visible)
+        loginView.showLinearLayout(visible)
+    }
+
+    override fun showUserUI(status: Boolean) {
+        var visible = if (!status) View.VISIBLE else View.GONE
+        userView.showProgressBar(visible)
+        visible = if (status) View.VISIBLE else View.INVISIBLE
+        userView.showLinearLayout(visible)
+    }
+
+    override fun showUserScreen() {
+        loginView.userExistScreen()
     }
 
 }
