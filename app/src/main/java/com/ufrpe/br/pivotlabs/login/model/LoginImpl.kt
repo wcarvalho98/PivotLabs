@@ -11,7 +11,6 @@ class LoginImpl(var presenter: LoginMVP.PresenterImpl) : LoginMVP.ModelImpl {
         user = FirebaseAuth.getInstance()
         user.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
-                presenter.showLoginUI(true)
                 if (task.isSuccessful) {
                     if (user.currentUser?.displayName == null) {
                         presenter.showUserScreen()
@@ -19,6 +18,7 @@ class LoginImpl(var presenter: LoginMVP.PresenterImpl) : LoginMVP.ModelImpl {
                         presenter.loginMainScreen()
                     }
                 } else {
+                    presenter.showLoginUI(true)
                     presenter.makeLoginSnackbar("User doesn't exist")
                 }
             }
@@ -30,10 +30,10 @@ class LoginImpl(var presenter: LoginMVP.PresenterImpl) : LoginMVP.ModelImpl {
         us.setDisplayName(name)
         user.currentUser?.updateProfile(us.build())
             ?.addOnCompleteListener { task ->
-            presenter.showUserUI(true)
             if (task.isSuccessful) {
                 presenter.userMainScreen()
             } else {
+                presenter.showUserUI(true)
                 presenter.makeUserSnackbar("Wasn't possible to set user name")
             }
         }

@@ -2,6 +2,7 @@ package com.ufrpe.br.pivotlabs.main.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.ufrpe.br.pivotlabs.Glide.GlideApp
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.main.MainMVP
 import com.ufrpe.br.pivotlabs.main.presenter.MainPresenter
@@ -15,5 +16,9 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
         setContentView(R.layout.activity_main)
 
         tvUser.text = presenter.getUserName()
+        GlideApp.with(this)
+            .load(R.drawable.ic_person_black_24dp)
+            .circleCrop()
+            .into(ivPerson)
     }
 }
