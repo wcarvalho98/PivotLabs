@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/cardView"
-            app:cardBackgroundColor="@color/colorSecondaryDark">
+            android:background="@color/white">
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
