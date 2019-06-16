@@ -23,10 +23,10 @@ class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
 
         presenter.setView(this)
         btLogin.setOnClickListener { login() }
-        GlideApp.with(this)
+        /*GlideApp.with(this)
             .load(R.drawable.pivot)
             .circleCrop()
-            .into(ivPivot)
+            .into(ivPivot)*/
     }
 
     override fun showProgressBar(visible: Int) {
