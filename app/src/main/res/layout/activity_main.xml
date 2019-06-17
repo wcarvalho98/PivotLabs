@@ -5,14 +5,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main.view.MainActivity" android:background="@drawable/background_default_color">
+        tools:context=".main.view.MainActivity" android:background="#26808080">
 
     <android.support.constraint.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="60dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:elevation="32dp"
-            android:background="@color/colorPrimaryDark" android:id="@+id/constraintLayout">
+            android:background="@drawable/background_white_transparent" android:id="@+id/constraintLayout">
 
         <ImageView
                 android:layout_width="36dp"
@@ -23,14 +23,17 @@
                 app:srcCompat="@drawable/pessoa"/>
         <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/tvUser" app:layout_constraintStart_toEndOf="@+id/ivPerson"
                 android:layout_marginStart="8dp"
                 app:layout_constraintTop_toTopOf="parent"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/tvFunction" android:fontFamily="monospace"
-                android:textStyle="bold" android:textColor="@color/colorSecondary" android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"/>
+                app:layout_constraintBottom_toTopOf="@+id/tvFunction" android:fontFamily="sans-serif-black"
+                android:textStyle="bold" android:textColor="@color/white"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView" android:textSize="30sp"
+                android:textAllCaps="false" android:text="@string/login_failed"
+        />
         <TextView
                 android:text="@string/paciente"
                 android:layout_width="wrap_content"
@@ -38,9 +41,10 @@
                 android:id="@+id/tvFunction"
                 app:layout_constraintStart_toEndOf="@+id/ivPerson"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="parent" android:textSize="12sp"
-                app:layout_constraintTop_toBottomOf="@+id/tvUser" android:textColor="@color/colorSecondaryDark"
-                app:layout_constraintEnd_toStartOf="@+id/imageView" android:layout_marginEnd="8dp"/>
+                app:layout_constraintBottom_toBottomOf="parent" android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@+id/tvUser" android:textColor="#CC338A3E"
+                app:layout_constraintEnd_toStartOf="@+id/imageView" android:layout_marginEnd="8dp"
+                android:textStyle="bold"/>
         <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp" app:srcCompat="@drawable/engrenagem"
@@ -72,7 +76,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/tvContato"
                     android:background="@drawable/btn_rounded" android:paddingHorizontal="12dp"
                     android:paddingVertical="12dp" android:layout_margin="8dp"
-                    android:backgroundTint="@color/colorPrimary"/>
+                    android:backgroundTint="@color/colorPrimaryDark"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,7 +112,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/tvQuemSomos"
                     android:background="@drawable/btn_rounded" android:paddingHorizontal="12dp"
                     android:paddingVertical="12dp" android:layout_margin="8dp"
-                    android:backgroundTint="@color/colorPrimary"/>
+                    android:backgroundTint="@color/colorPrimaryDark"/>
         </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>

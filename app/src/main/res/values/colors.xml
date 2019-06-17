@@ -13,7 +13,8 @@
     <!--Cores complementares -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="transparent">#03000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="greyLight">#26808080</color>
     <color name="disabled">#37000000</color>
 
     <color name="primaryButtonColor">#64FFDA</color>
