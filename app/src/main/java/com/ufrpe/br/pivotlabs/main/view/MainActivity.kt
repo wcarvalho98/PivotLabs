@@ -16,9 +16,5 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
         setContentView(R.layout.activity_main)
 
         tvUser.text = presenter.getUserName()
-        GlideApp.with(this)
-            .load(R.drawable.ic_person_black_24dp)
-            .circleCrop()
-            .into(ivPerson)
     }
 }
