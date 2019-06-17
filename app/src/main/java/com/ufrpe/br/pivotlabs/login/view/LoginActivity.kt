@@ -10,6 +10,7 @@ import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.LoginMVP.PresenterImpl
 import com.ufrpe.br.pivotlabs.login.presenter.LoginPresenter
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
+import com.ufrpe.br.pivotlabs.signup.view.SignUpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.tvEmail
 
@@ -49,6 +50,12 @@ class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
 
     override fun mainScreen() {
         val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        this.finish()
+    }
+
+    override fun signUp() {
+        val intent = Intent(this,SignUpActivity::class.java)
         startActivity(intent)
         this.finish()
     }

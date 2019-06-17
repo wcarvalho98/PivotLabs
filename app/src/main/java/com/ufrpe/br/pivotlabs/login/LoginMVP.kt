@@ -33,6 +33,7 @@ interface LoginMVP {
         fun showProgressBar(visible: Int)
         fun showLinearLayout(visible: Int)
         fun mainScreen()
+        fun signUp()
         fun makeSnackbar(text: String)
         fun emailError(error: String)
         fun passwordError(error: String)
