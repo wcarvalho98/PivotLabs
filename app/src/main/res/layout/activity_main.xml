@@ -15,43 +15,43 @@
             android:background="@drawable/background_white_transparent" android:id="@+id/constraintLayout">
 
         <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="46dp"
+                android:layout_height="0dp"
                 android:id="@+id/ivPerson" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="8dp" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"
-                app:srcCompat="@drawable/pessoa"/>
+                android:layout_marginStart="8dp"
+                app:srcCompat="@drawable/pessoa" android:layout_marginBottom="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/tvUser"/>
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:id="@+id/tvUser" app:layout_constraintStart_toEndOf="@+id/ivPerson"
                 android:layout_marginStart="8dp"
                 app:layout_constraintTop_toTopOf="parent"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 app:layout_constraintBottom_toTopOf="@+id/tvFunction" android:fontFamily="sans-serif-black"
                 android:textStyle="bold" android:textColor="@color/white"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView" android:textSize="30sp"
+                android:textSize="30sp"
                 android:textAllCaps="false" android:text="@string/login_failed"
-        />
+                android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/imageView"/>
         <TextView
                 android:text="@string/paciente"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvFunction"
                 app:layout_constraintStart_toEndOf="@+id/ivPerson"
                 android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="parent" android:textSize="14sp"
                 app:layout_constraintTop_toBottomOf="@+id/tvUser" android:textColor="#CC338A3E"
-                app:layout_constraintEnd_toStartOf="@+id/imageView" android:layout_marginEnd="8dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" app:layout_constraintEnd_toEndOf="@+id/tvUser"/>
         <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp" app:srcCompat="@drawable/engrenagem"
-                android:id="@+id/imageView" android:layout_marginBottom="8dp"
+                android:layout_width="46dp"
+                android:layout_height="0dp" app:srcCompat="@drawable/ic_pivot"
+                android:id="@+id/imageView"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/tvUser"
+        />
     </android.support.constraint.ConstraintLayout>
     <LinearLayout android:layout_width="0dp"
                   android:layout_height="wrap_content"

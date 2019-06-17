@@ -18,9 +18,9 @@ class InitialActivity : AppCompatActivity() {
         setContentView(R.layout.activity_initial)
 
         setAnimation(ivPivot)
-        setAnimation(tvPivot)
+        setAnimation(ivPivotLogo)
         ivPivot.animate().alpha(1.0F).setDuration(500).start()
-        tvPivot.animate().alpha(1.0F).setDuration(500).start()
+        ivPivotLogo.animate().alpha(1.0F).setDuration(500).start()
 
         val handler = Handler()
         handler.postDelayed({
