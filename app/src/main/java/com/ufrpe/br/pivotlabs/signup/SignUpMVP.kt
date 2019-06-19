@@ -7,7 +7,6 @@ import com.ufrpe.br.pivotlabs.signup.view.SignUpActivity
 interface SignUpMVP{
 
     interface SignUpActivityImpl{
-
     }
 
     interface SignUpPresenterImpl{
