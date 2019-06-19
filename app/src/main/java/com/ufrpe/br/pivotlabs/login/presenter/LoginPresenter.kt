@@ -103,10 +103,8 @@ class LoginPresenter : LoginMVP.PresenterImpl {
         loginView.userExistScreen()
     }
 
-    override fun signUp(activity: LoginActivity) {
-        val intent = Intent(activity,SignUpActivity::class.java)
-        startActivity(activity,intent,null)
-        activity.finish()
+    override fun signUp(activity: LoginActivity):Intent{
+        return Intent(activity,SignUpActivity::class.java)
     }
 
 }

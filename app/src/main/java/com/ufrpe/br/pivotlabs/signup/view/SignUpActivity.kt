@@ -4,27 +4,35 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.signup.SignUpMVP
+import com.ufrpe.br.pivotlabs.signup.presenter.SignUpPresenter
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_sign_up.*
+
 class SignUpActivity : AppCompatActivity(), SignUpMVP.SignUpActivityImpl {
+
+    private var presenter : SignUpMVP.SignUpPresenterImpl = SignUpPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+        btnClear.setOnClickListener{clear()}
+        btnRegister.setOnClickListener{register()}
     }
 
-    override fun setUsername(username: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+    private fun clear(){
+        edtPassword.setText("")
+        edtConfirmPassword.setText("")
+        edtUserEmail.setText("")
     }
 
-    override fun setEmail(email: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun setPassword(email: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun usernameError(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun register(){
+        var b = presenter.register(edtUserEmail.toString(),edtPassword.toString(),edtConfirmPassword.toString())
+        if(b) {
+            var intent = presenter.showUserExistsActivity(this)
+            startActivity(intent)
+            this.finish()
+        }
     }
 
 }

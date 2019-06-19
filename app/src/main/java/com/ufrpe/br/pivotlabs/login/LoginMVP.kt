@@ -1,5 +1,6 @@
 package com.ufrpe.br.pivotlabs.login
 
+import android.content.Intent
 import com.google.firebase.auth.FirebaseAuth
 import com.ufrpe.br.pivotlabs.login.view.LoginActivity
 import com.ufrpe.br.pivotlabs.login.view.UserExistActivity
@@ -27,7 +28,7 @@ interface LoginMVP {
         fun showLoginUI(status: Boolean)
         fun showUserUI(status: Boolean)
         fun showUserScreen()
-        fun signUp(activity: LoginActivity)
+        fun signUp(activity: LoginActivity):Intent
     }
 
     interface LoginActivityImpl {

@@ -30,15 +30,7 @@
                           android:text="@string/txt_sign_up"
                 />
                 <EditText
-                        android:id="@+id/edtUsername"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="12dp"
-                        android:inputType="text"
-                        android:hint="@string/prompt_username"
-                />
-                <EditText
-                        android:id="@+id/edtUerEmail"
+                        android:id="@+id/edtUserEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"
