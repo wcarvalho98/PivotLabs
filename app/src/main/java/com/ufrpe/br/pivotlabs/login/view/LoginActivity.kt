@@ -10,7 +10,6 @@ import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.LoginMVP.PresenterImpl
 import com.ufrpe.br.pivotlabs.login.presenter.LoginPresenter
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
-import com.ufrpe.br.pivotlabs.signup.view.SignUpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.tvEmail
 
@@ -24,6 +23,7 @@ class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
 
         presenter.setView(this)
         btLogin.setOnClickListener { login() }
+        btnSignUp.setOnClickListener { signUp() }
         /*GlideApp.with(this)
             .load(R.drawable.pivot)
             .circleCrop()
@@ -54,12 +54,6 @@ class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
         this.finish()
     }
 
-    override fun signUp() {
-        val intent = Intent(this,SignUpActivity::class.java)
-        startActivity(intent)
-        this.finish()
-    }
-
     override fun userExistScreen() {
         val intent = Intent(this, UserExistActivity::class.java)
         startActivity(intent)
@@ -74,5 +68,9 @@ class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
 
     private fun login() {
         presenter.login(tvEmail.text.toString(), tvPassword.text.toString())
+    }
+
+    override fun signUp() {
+        presenter.signUp(this)
     }
 }

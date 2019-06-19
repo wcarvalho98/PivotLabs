@@ -1,13 +1,18 @@
 package com.ufrpe.br.pivotlabs.login.presenter
 
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.model.LoginImpl
 import com.ufrpe.br.pivotlabs.login.view.LoginActivity
 import com.ufrpe.br.pivotlabs.login.view.UserExistActivity
+import com.ufrpe.br.pivotlabs.signup.view.SignUpActivity
 
 class LoginPresenter : LoginMVP.PresenterImpl {
+
     private var model: LoginMVP.ModelImpl = LoginImpl(this)
     private lateinit var loginView: LoginMVP.LoginActivityImpl
     private lateinit var userView: LoginMVP.UserExistActivityImpl
@@ -96,6 +101,12 @@ class LoginPresenter : LoginMVP.PresenterImpl {
 
     override fun showUserScreen() {
         loginView.userExistScreen()
+    }
+
+    override fun signUp(activity: LoginActivity) {
+        val intent = Intent(activity,SignUpActivity::class.java)
+        startActivity(activity,intent,null)
+        activity.finish()
     }
 
 }

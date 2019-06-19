@@ -27,6 +27,7 @@ interface LoginMVP {
         fun showLoginUI(status: Boolean)
         fun showUserUI(status: Boolean)
         fun showUserScreen()
+        fun signUp(activity: LoginActivity)
     }
 
     interface LoginActivityImpl {
