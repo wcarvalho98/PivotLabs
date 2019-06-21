@@ -27,7 +27,7 @@
             android:backgroundTint="@color/backwhite"
             app:contentPadding="16dp" app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true" app:cardElevation="16dp"
-            android:layout_marginTop="50dp" android:id="@+id/cardView2">
+            android:layout_marginTop="64dp" android:id="@+id/cardView2">
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
