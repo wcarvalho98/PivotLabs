@@ -1,21 +1,28 @@
 package com.ufrpe.br.pivotlabs.signup
 
-import android.content.Intent
-import android.widget.EditText
 import com.ufrpe.br.pivotlabs.signup.view.SignUpActivity
 
 interface SignUpMVP{
 
-    interface SignUpActivityImpl{
+    interface ModelImpl{
+        fun registerUser(userEmail: String, password: String)
     }
 
-    interface SignUpPresenterImpl{
-        fun register(userEmail:String,password:String,confirmPassword:String):Boolean
-        fun showUserExistsActivity(activity:SignUpActivity): Intent
+    interface PresenterImpl{
+        fun register(userEmail: String, password: String, confirmPassword: String)
+        fun showUserExistsActivity()
+        fun showUI(status: Boolean)
+        fun makeSnackbar(text: String)
+        fun setView(view: SignUpActivity)
     }
 
-    interface SignUpModelImpl{
-        fun userExists()
-        fun registerUser()
+    interface ViewImpl{
+        fun showProgressBar(visible: Int)
+        fun showLinearLayout(visible: Int)
+        fun showUserExistsActivity()
+        fun emailError(error: String)
+        fun passwordError(error: String)
+        fun confirmPasswordError(error: String)
+        fun makeSnackbar(text: String)
     }
 }

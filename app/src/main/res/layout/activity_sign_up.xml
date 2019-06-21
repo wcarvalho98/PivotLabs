@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".signup.view.SignUpActivity"
-        android:background="@drawable/background_default_color" android:paddingVertical="12dp">
+        android:background="@drawable/background_default_color" android:paddingVertical="12dp" android:id="@+id/clRoot">
 
     <ProgressBar
             style="?android:attr/progressBarStyle"
@@ -16,7 +16,7 @@
             android:visibility="gone"
             android:elevation="20dp"
             app:layout_constraintEnd_toEndOf="@+id/cardView2" app:layout_constraintStart_toStartOf="@+id/cardView2"
-            app:layout_constraintBottom_toBottomOf="@+id/cardView2"/>
+            app:layout_constraintBottom_toBottomOf="@+id/cardView2" app:layout_constraintTop_toTopOf="@+id/cardView2"/>
     <android.support.v7.widget.CardView
 
             android:layout_width="0dp"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-        >
+                android:id="@+id/llSignUp">
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:text="@string/txt_sign_up"
