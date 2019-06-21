@@ -21,14 +21,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cardElevation="16dp" app:cardPreventCornerOverlap="true"
-            app:contentPadding="20dp" app:cardCornerRadius="16dp"
+            app:contentPadding="20dp"
             app:cardUseCompatPadding="true"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/cardView"
-            android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="32dp">
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="32dp"
+            app:cardCornerRadius="6dp" android:backgroundTint="#E8F5E9">
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -49,7 +49,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/prompt_email" android:inputType="textEmailAddress"
-                        android:paddingStart="8dp" android:id="@+id/tvEmail"/>
+                        android:paddingStart="8dp" android:id="@+id/tvEmail" android:autoText="true"
+                />
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -59,7 +60,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/prompt_password" android:inputType="textPassword"
-                        android:paddingStart="8dp" android:id="@+id/tvPassword"/>
+                        android:paddingStart="8dp" android:id="@+id/tvPassword"
+                />
             </android.support.design.widget.TextInputLayout>
             <Button
                     android:text="@string/action_sign_in_short"
@@ -70,7 +72,7 @@
                     android:layout_marginRight="20dp" android:layout_marginTop="8dp"
                     android:background="@drawable/btn_rounded_transparent"
                     android:layout_marginBottom="8dp" android:backgroundTint="@color/colorPrimaryDark"
-                    android:textColor="@color/colorPrimaryDark" android:textSize="26sp"/>
+                    android:textColor="@color/colorPrimaryDark" android:textSize="26sp" android:textStyle="bold"/>
 
             <Button
                     android:text="@string/txt_sign_up"

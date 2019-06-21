@@ -7,13 +7,14 @@
 
     <!--Cores Secondarias-->
     <color name="colorSecondary">#69f0ae</color>
-    <color name="colorSecondaryLight">#9fffe0</color>
+    <color name="colorSecondaryLight">#9FFFE0</color>
     <color name="colorSecondaryDark">#2bbd7e</color>
 
     <!--Cores complementares -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
+    <color name="backwhite">#E8F5E9</color>
     <color name="greyLight">#26808080</color>
     <color name="disabled">#37000000</color>
 
