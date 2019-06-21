@@ -41,7 +41,10 @@ class SignUpPresenter : SignUpMVP.PresenterImpl{
             showUI(true)
             return
         }
-        model.registerUser(userEmail, password)
+        if (view.isPatient())
+            model.registerUser(userEmail, password)
+        else
+            model.registerProfessional(userEmail, password)
     }
 
     override fun showUserExistsActivity() {

@@ -16,4 +16,12 @@ class MainPresenter : MainMVP.PresenterImpl {
         this.view = view
     }
 
+    override fun isDoctor() {
+        model.isDoctor()
+    }
+
+    override fun setFunction(function: String) {
+        view.function(function)
+    }
+
 }

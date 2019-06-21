@@ -4,7 +4,6 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import com.ufrpe.br.pivotlabs.Glide.GlideApp
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.LoginMVP.PresenterImpl
