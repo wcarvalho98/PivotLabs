@@ -9,13 +9,14 @@
 
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/pivotlabs"
+            android:layout_height="0dp" app:srcCompat="@drawable/pivotlabs"
             android:id="@+id/ivPivot"
             android:transitionName="pivot"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintBottom_toBottomOf="parent"
-            android:theme="@style/AppTheme.TransitionExit"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:theme="@style/AppTheme.TransitionExit"
+    />
     <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp" app:srcCompat="@drawable/pivotlogo"

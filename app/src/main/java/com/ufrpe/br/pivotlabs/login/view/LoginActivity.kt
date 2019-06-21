@@ -71,8 +71,7 @@ class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
     }
 
     override fun signUp() {
-        var intent = presenter.signUp(this)
+        val intent = presenter.signUp(this)
         startActivity(intent)
-        this.finish()
     }
 }

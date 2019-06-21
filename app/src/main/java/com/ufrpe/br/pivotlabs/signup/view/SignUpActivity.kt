@@ -19,7 +19,6 @@ class SignUpActivity : AppCompatActivity(), SignUpMVP.SignUpActivityImpl {
         btnRegister.setOnClickListener{register()}
     }
 
-
     private fun clear(){
         edtPassword.setText("")
         edtConfirmPassword.setText("")

@@ -8,10 +8,7 @@ import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.presenter.LoginPresenter
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_user_exist.*
-import kotlinx.android.synthetic.main.activity_user_exist.textView3
-import kotlinx.android.synthetic.main.activity_user_exist.llContent as llContent1
 
 class UserExistActivity : AppCompatActivity(), LoginMVP.UserExistActivityImpl {
 
