@@ -1,7 +1,7 @@
 package com.ufrpe.br.pivotlabs.about.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.ufrpe.br.pivotlabs.R
 
 class AboutActivity : AppCompatActivity() {

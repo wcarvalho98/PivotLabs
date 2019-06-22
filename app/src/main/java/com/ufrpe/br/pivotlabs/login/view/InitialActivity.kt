@@ -1,14 +1,14 @@
 package com.ufrpe.br.pivotlabs.login.view
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v4.view.ViewCompat
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import android.view.View
 import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_initial.*
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.ufrpe.br.pivotlabs.R
 
 class InitialActivity : AppCompatActivity() {

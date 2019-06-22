@@ -1,9 +1,9 @@
 package com.ufrpe.br.pivotlabs.login.view
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.presenter.LoginPresenter
@@ -32,7 +32,6 @@ class UserExistActivity : AppCompatActivity(), LoginMVP.UserExistActivityImpl {
 
     override fun userError(error: String) {
         tvUserName.requestFocus()
-        tvUserName.error = error
     }
 
     override fun mainScreen() {

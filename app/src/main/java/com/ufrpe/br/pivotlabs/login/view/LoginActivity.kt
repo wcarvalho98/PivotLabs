@@ -1,9 +1,9 @@
 package com.ufrpe.br.pivotlabs.login.view
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.login.LoginMVP
 import com.ufrpe.br.pivotlabs.login.LoginMVP.PresenterImpl
@@ -23,10 +23,6 @@ class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
         presenter.setView(this)
         btLogin.setOnClickListener { login() }
         btnSignUp.setOnClickListener { signUp() }
-        /*GlideApp.with(this)
-            .load(R.drawable.pivot)
-            .circleCrop()
-            .into(ivPivot)*/
     }
 
     override fun showProgressBar(visible: Int) {

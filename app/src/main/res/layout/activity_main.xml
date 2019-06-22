@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".main.view.MainActivity" android:background="@color/backwhite">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="76dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,8 +52,8 @@
                 android:layout_marginEnd="8dp"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/tvUser"
                 android:elevation="4dp"/>
-    </android.support.constraint.ConstraintLayout>
-    <android.support.constraint.ConstraintLayout
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="250dp"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" app:layout_constraintStart_toStartOf="parent"
@@ -79,8 +79,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3" android:textAllCaps="false"
                 android:textStyle="bold" android:textColor="@color/backwhite" android:paddingHorizontal="16dp"
                 android:elevation="4dp" android:backgroundTint="#F24CAF50"/>
-    </android.support.constraint.ConstraintLayout>
-    <android.support.constraint.ConstraintLayout
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="150dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
                 android:layout_height="match_parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="4dp">
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:layout_weight="1" android:layout_marginEnd="2dp"
                     android:elevation="16dp">
@@ -116,8 +116,8 @@
                         android:textStyle="bold"
                         android:elevation="4dp" android:textSize="24sp"
                         android:backgroundTint="#F24CAF50"/>
-            </android.support.constraint.ConstraintLayout>
-            <android.support.constraint.ConstraintLayout
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="2dp"
                     android:elevation="16dp">
@@ -138,9 +138,9 @@
                         android:textColor="@color/backwhite" android:textAllCaps="false"
                         android:textStyle="bold"
                         android:elevation="4dp" android:backgroundTint="#F24CAF50"/>
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
@@ -150,7 +150,7 @@
                   app:layout_constraintEnd_toEndOf="parent" android:baselineAligned="false"
                   android:id="@+id/linearLayout" android:background="#A5D6A7" android:elevation="16dp"
                   android:paddingVertical="8dp" android:paddingHorizontal="8dp">
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:layout_weight="1">
 
@@ -176,9 +176,9 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imgBtnPhone"
                     app:layout_constraintEnd_toEndOf="parent" android:textColor="#1B5E20"/>
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:layout_weight="1">
 
@@ -202,7 +202,7 @@
                     android:background="@drawable/btn_rounded" android:paddingHorizontal="12dp"
                     android:paddingVertical="12dp" android:layout_margin="8dp"
                     android:backgroundTint="#F24CAF50" android:elevation="4dp"/>
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
     <!--Rodape-->
@@ -225,4 +225,4 @@
                 android:textStyle="bold"/>
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

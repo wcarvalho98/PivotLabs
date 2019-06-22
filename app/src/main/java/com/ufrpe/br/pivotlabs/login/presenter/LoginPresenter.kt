@@ -1,8 +1,6 @@
 package com.ufrpe.br.pivotlabs.login.presenter
 
 import android.content.Intent
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.ufrpe.br.pivotlabs.login.LoginMVP

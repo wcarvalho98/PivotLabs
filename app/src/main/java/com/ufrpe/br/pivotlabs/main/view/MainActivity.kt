@@ -1,7 +1,7 @@
 package com.ufrpe.br.pivotlabs.main.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.main.MainMVP
 import com.ufrpe.br.pivotlabs.main.presenter.MainPresenter
