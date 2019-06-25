@@ -37,4 +37,27 @@
         We are a tech start-up aiming to build a better world by the wellbeing and comfort of the people.
         Bringing innovation with sustainability.
     </string>
+
+    <!--ProfessionalSelectActivity-->
+    <string-array name="specialty">
+        <item>Dermatologist</item>
+        <item>Nutritionist</item>
+    </string-array>
+
+
+    <string-array name="city_names">
+        <item>Recife</item>
+        <item>Camargibe</item>
+        <item>Jaboatão</item>
+        <item>São Lourenço</item>
+        <item>Cabo de Santo Agostinho</item>
+    </string-array>
+
+    <string-array name="day_periods">
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Night</item>
+    </string-array>
+
+
 </resources>

@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".professional_select.professional_select.view.ProfessionalSelectActivity">
+        tools:context=".professional_select.view.ProfessionalSelectActivity">
 
     <TableLayout
 
@@ -30,15 +30,40 @@
             />
 
             <Spinner
+                    android:id="@+id/spnSpecialty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
-                    android:
-            ></Spinner>
+                    android:background="@drawable/btn_rounded"
+                    android:padding="8dp"
+            />
 
+            <Spinner
+                    android:id="@+id/spnCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/btn_rounded"
+                    android:padding="8dp"
+            />
+
+            <Spinner
+                    android:id="@+id/spnDayPeroid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/btn_rounded"
+                    android:padding="8dp"
+            />
         </TableRow>
 
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+        >
 
+
+        </TableRow>
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

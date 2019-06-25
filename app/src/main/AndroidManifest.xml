@@ -11,7 +11,7 @@
             android:roundIcon="@drawable/ic_pivot"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".professional_select.professional_select.view.ProfessionalSelectActivity">
+        <activity android:name=".professional_select.view.ProfessionalSelectActivity">
         </activity>
         <activity android:name=".signup.view.SignUpActivity">
         </activity>

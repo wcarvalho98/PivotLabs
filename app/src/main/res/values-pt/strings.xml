@@ -37,4 +37,25 @@
         pessoas.
         Trazendo inovação aliado a sustentabilidade.
     </string>
+
+    <!--ProfessionalSelectActivity-->
+    <string-array name="specialty">
+            <item>Dematologista</item>
+            <item>Nutricionnista</item>
+    </string-array>
+
+    <string-array name="city_names">
+        <item>Recife</item>
+        <item>Camargibe</item>
+        <item>Jaboatão</item>
+        <item>São Lourenço</item>
+        <item>Cabo de Santo Agostinho</item>
+    </string-array>
+
+    <string-array name="day_periods">
+        <item>Manhã</item>
+        <item>Tarde</item>
+        <item>Noite</item>
+    </string-array>
+
 </resources>
