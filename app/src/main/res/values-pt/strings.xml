@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">PivotLabs</string>
     <string name="title_activity_login">Sign in</string>
-    <string name="txt_sign_up">Sign up</string>
-    <string name="txt_register">Register</string>
-    <string name="txt_clear">Clear</string>
+    <string name="txt_sign_up">Cadastre-se</string>
+    <string name="txt_register">Cadastrar</string>
+    <string name="txt_clear">Limpar</string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="prompt_confirm_password">Confirm Password</string>
-    <string name="prompt_username">username</string>
+    <string name="prompt_password">Senha</string>
+    <string name="prompt_confirm_password">Confirmar Senha</string>
+    <string name="prompt_username">Nome de Usuário</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="welcome">"Bem-vindo!"</string>
+    <string name="invalid_username">Nome de Usuário inválido</string>
+    <string name="invalid_password">A senha deve ter mais que 5 caracteres</string>
+    <string name="login_failed">"Login falhou"</string>
 
     <string name="paciente">Paciente</string>
     <string name="profissional">Profissional</string>
