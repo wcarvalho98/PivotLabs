@@ -18,11 +18,11 @@
     <string name="paciente">Patient</string>
     <string name="profissional">Professional</string>
 
-    <string name="txt_agede_consulta">Agende sua consulta</string>
+    <string name="txt_agede_consulta">Schedule an appointment</string>
 
 
-    <string name="txt_contato">Contato</string>
-    <string name="txt_quem_somos">Quem somos</string>
+    <string name="txt_contato">Contact us</string>
+    <string name="txt_quem_somos">About us</string>
 
 
     <!--Informacoes extras-->
