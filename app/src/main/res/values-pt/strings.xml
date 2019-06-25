@@ -40,11 +40,13 @@
 
     <!--ProfessionalSelectActivity-->
     <string-array name="specialty">
+            <item>Todos</item>
             <item>Dematologista</item>
             <item>Nutricionnista</item>
     </string-array>
 
     <string-array name="city_names">
+        <item>Todos</item>
         <item>Recife</item>
         <item>Camargibe</item>
         <item>Jaboatão</item>
@@ -53,6 +55,7 @@
     </string-array>
 
     <string-array name="day_periods">
+        <item>Todos</item>
         <item>Manhã</item>
         <item>Tarde</item>
         <item>Noite</item>

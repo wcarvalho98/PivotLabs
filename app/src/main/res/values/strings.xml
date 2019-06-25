@@ -42,6 +42,7 @@
     <string-array name="specialty">
         <item>Dermatologist</item>
         <item>Nutritionist</item>
+        <item>All</item>
     </string-array>
 
 
@@ -51,12 +52,14 @@
         <item>Jaboatão</item>
         <item>São Lourenço</item>
         <item>Cabo de Santo Agostinho</item>
+        <item>All</item>
     </string-array>
 
     <string-array name="day_periods">
         <item>Morning</item>
         <item>Afternoon</item>
         <item>Night</item>
+        <item>All</item>
     </string-array>
 
 

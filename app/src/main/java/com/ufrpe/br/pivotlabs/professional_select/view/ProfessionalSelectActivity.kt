@@ -57,6 +57,16 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         this.finish()
     }
 
+    /**
+     * Requests to the presenter a list of professionals with the given filters
+     * and creates a new array adapter with the list of professionals updated
+     * and displays it
+     * */
+    override fun fetchFilteredProfessionals() {
+        presenter.evaluateFetchfilteredProfetionals(spnSpecialty.selectedItem.toString(),
+                                                    spnCity.selectedItem.toString(),
+                                                    spnDayPeroid.selectedItem.toString())
+    }
 
 
 }
