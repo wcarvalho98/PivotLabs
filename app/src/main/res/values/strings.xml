@@ -15,8 +15,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <string name="paciente">Paciente</string>
-    <string name="profissional">Profissional</string>
+    <string name="paciente">Patient</string>
+    <string name="profissional">Professional</string>
 
     <string name="txt_agede_consulta">Agende sua consulta</string>
 
@@ -28,6 +28,9 @@
     <!--Informacoes extras-->
     <string name="email_address">pivotlabs@gmail.com</string>
 
+
+    <!--Texts dedicated to the sign up area-->
+    <string name="txt_preson_definition">I am a:</string>
 
     <!--Activity Quem somos-->
     <string name="textao_quem_somos">

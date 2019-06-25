@@ -4,7 +4,7 @@
     <string name="txt_sign_up">Cadastre-se</string>
     <string name="txt_register">Cadastrar</string>
     <string name="txt_clear">Limpar</string>
-    <string name="prompt_email">Email</string>
+    <string name="prompt_email">E-mail</string>
     <string name="prompt_password">Senha</string>
     <string name="prompt_confirm_password">Confirmar Senha</string>
     <string name="prompt_username">Nome de Usuário</string>
@@ -24,6 +24,8 @@
     <string name="txt_contato">Contato</string>
     <string name="txt_quem_somos">Quem somos</string>
 
+    <!--Texts dedicated to the sign up area-->
+    <string name="txt_preson_definition">I am a:</string>
 
     <!--Informacoes extras-->
     <string name="email_address">pivotlabs@gmail.com</string>
