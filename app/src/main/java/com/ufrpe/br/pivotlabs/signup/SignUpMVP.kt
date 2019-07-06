@@ -6,7 +6,6 @@ interface SignUpMVP{
 
     interface ModelImpl{
         fun registerUser(userEmail: String, password: String)
-        fun registerProfessional(userEmail: String, password: String)
     }
 
     interface PresenterImpl{
@@ -25,6 +24,5 @@ interface SignUpMVP{
         fun passwordError(error: String)
         fun confirmPasswordError(error: String)
         fun makeSnackbar(text: String)
-        fun isPatient(): Boolean
     }
 }

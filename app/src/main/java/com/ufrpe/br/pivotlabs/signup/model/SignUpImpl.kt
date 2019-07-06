@@ -9,7 +9,6 @@ import com.ufrpe.br.pivotlabs.signup.SignUpMVP
 class SignUpImpl(var presenter: SignUpMVP.PresenterImpl) : SignUpMVP.ModelImpl{
     private var user = FirebaseAuth.getInstance()
     private var patientRef = FirebaseDatabase.getInstance().getReference("patient")
-    private var doctorRef = FirebaseDatabase.getInstance().getReference("doctor")
 
     override fun registerUser(userEmail: String, password: String) {
         user.createUserWithEmailAndPassword(userEmail, password)
@@ -31,27 +30,6 @@ class SignUpImpl(var presenter: SignUpMVP.PresenterImpl) : SignUpMVP.ModelImpl{
                                             presenter.showUI(true)
                                         }
                                     }
-                            }
-                        }
-                } else {
-                    presenter.makeSnackbar("Wasn't possible to add this user")
-                    presenter.showUI(true)
-                }
-            }
-    }
-
-    override fun registerProfessional(userEmail: String, password: String) {
-        user.createUserWithEmailAndPassword(userEmail, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val doctor = Doctor(userEmail, null, null, null, null)
-                    doctorRef.child(user.currentUser!!.uid).setValue(doctor)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                presenter.showUserExistsActivity()
-                            } else {
-                                presenter.makeSnackbar("Wasn't possible to add this user")
-                                presenter.showUI(true)
                             }
                         }
                 } else {

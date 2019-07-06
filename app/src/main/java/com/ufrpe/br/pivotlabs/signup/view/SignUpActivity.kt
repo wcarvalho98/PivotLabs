@@ -57,10 +57,6 @@ class SignUpActivity : AppCompatActivity(), SignUpMVP.ViewImpl {
         snack.show()
     }
 
-    override fun isPatient() : Boolean {
-        return rbPatient.isChecked
-    }
-
     private fun clear(){
         edtPassword.setText("")
         edtConfirmPassword.setText("")
