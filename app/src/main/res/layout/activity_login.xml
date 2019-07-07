@@ -72,7 +72,7 @@
                     android:layout_marginRight="20dp" android:layout_marginTop="8dp"
                     android:background="@drawable/btn_rounded_transparent"
                     android:layout_marginBottom="8dp" android:backgroundTint="@color/colorPrimaryDark"
-                    android:textColor="@color/colorPrimaryDark" android:textSize="26sp" android:textStyle="bold"/>
+                    android:textColor="@color/backwhite" android:textSize="26sp" android:textStyle="bold"/>
 
             <Button
                     android:text="@string/txt_sign_up"
