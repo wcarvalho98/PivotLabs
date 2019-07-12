@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
         setContentView(R.layout.activity_main)
 
         tvUser.text = presenter.getUserName()
+        imgBtnPeople.setOnClickListener {
+            displayAboutActivity()
+        }
         presenter.setView(this)
         presenter.isDoctor()
     }
@@ -23,4 +26,11 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
     override fun function(function: String) {
         tvFunction.text = function
     }
+
+    override fun displayAboutActivity() {
+        var intent = presenter.getAboutActivityIntent(this)
+        this.startActivity(intent)
+        this.finish()
+    }
+
 }

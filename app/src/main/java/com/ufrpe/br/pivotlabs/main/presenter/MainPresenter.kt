@@ -1,10 +1,15 @@
 package com.ufrpe.br.pivotlabs.main.presenter
 
+import android.app.Activity
+import android.content.Intent
+import com.ufrpe.br.pivotlabs.about.view.AboutActivity
 import com.ufrpe.br.pivotlabs.main.MainMVP
 import com.ufrpe.br.pivotlabs.main.model.MainImpl
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
 
 class MainPresenter : MainMVP.PresenterImpl {
+
+
     private var model: MainMVP.ModelImpl = MainImpl(this)
     lateinit var view: MainMVP.ViewImpl
 
@@ -22,6 +27,10 @@ class MainPresenter : MainMVP.PresenterImpl {
 
     override fun setFunction(function: String) {
         view.function(function)
+    }
+
+    override fun getAboutActivityIntent(act: Activity): Intent {
+        return Intent(act,AboutActivity::class.java)
     }
 
 }
