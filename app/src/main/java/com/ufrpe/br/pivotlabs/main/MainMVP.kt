@@ -25,7 +25,7 @@ interface MainMVP {
 
         fun function(function: String)
         fun displayAboutActivity()
-        fun diplayProfessionalSelectActivity()
+        fun displayProfessionalSelectActivity()
     }
 
 }

@@ -21,7 +21,9 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
         imgBtnPeople.setOnClickListener {
             displayAboutActivity()
         }
-
+        btnSchedule.setOnClickListener {
+            displayProfessionalSelectActivity()
+        }
         presenter.setView(this)
         presenter.isDoctor()
     }
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
         this.finish()
     }
 
-    override fun diplayProfessionalSelectActivity(){
+    override fun displayProfessionalSelectActivity(){
         var intent = presenter.getProfessionalSelectActivityIntent(this)
         this.startActivity(intent)
         this.finish()
