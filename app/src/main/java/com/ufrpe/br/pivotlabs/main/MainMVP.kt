@@ -18,12 +18,14 @@ interface MainMVP {
         fun isDoctor()
         fun setFunction(function: String)
         fun getAboutActivityIntent(act: Activity): Intent
+        fun getProfessionalSelectActivityIntent(act: Activity): Intent
     }
 
     interface ViewImpl {
 
         fun function(function: String)
         fun displayAboutActivity()
+        fun diplayProfessionalSelectActivity()
     }
 
 }
