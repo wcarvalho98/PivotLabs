@@ -27,7 +27,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         var specialtySpinner = spnSpecialty
         ArrayAdapter.createFromResource(this,
             R.array.specialty,
-            android.R.layout.simple_spinner_item).also { adapter->
+            R.layout.text_spinner).also { adapter->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
                 specialtySpinner.adapter = adapter
@@ -35,7 +35,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         var citySpinner = spnCity
         ArrayAdapter.createFromResource(this,
             R.array.city_names,
-            android.R.layout.simple_spinner_item).also { adapter->
+            R.layout.text_spinner).also { adapter->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             citySpinner.adapter = adapter
         }
@@ -44,7 +44,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         var dayPeriodSpinner = spnDayPeroid
         ArrayAdapter.createFromResource(this,
             R.array.day_periods,
-            android.R.layout.simple_spinner_item).also { adapter->
+            R.layout.text_spinner).also { adapter->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             dayPeriodSpinner.adapter = adapter
         }
