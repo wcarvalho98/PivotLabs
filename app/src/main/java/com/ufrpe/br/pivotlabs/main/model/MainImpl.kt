@@ -1,7 +1,5 @@
 package com.ufrpe.br.pivotlabs.main.model
 
-import androidx.core.content.res.TypedArrayUtils.getText
-import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ufrpe.br.pivotlabs.beans.Doctor

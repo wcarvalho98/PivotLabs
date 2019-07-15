@@ -1,26 +1,33 @@
 package com.ufrpe.br.pivotlabs.professional_select.model
 
 import android.os.AsyncTask
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.professional_select.ProfessionalSelectMVP
 
-class ProfessionalSelectModel : ProfessionalSelectMVP.ModelImpl{
+class ProfessionalSelectModel(var presenter: ProfessionalSelectMVP.PresenterImpl) : ProfessionalSelectMVP.ModelImpl{
 
-    override fun fetchAllprofessionals() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
+    override fun fetchAllprofessionals(): ArrayList<Doctor> = RequestProfessionalsFromRemote().execute().get()
 
     class RequestProfessionalsFromRemote : AsyncTask<Void,Void,ArrayList<Doctor>>(){
 
-        var doctors = FirebaseDatabase.getInstance()
-
         override fun doInBackground(vararg params: Void?): ArrayList<Doctor>? {
-            var values = doctors.getReference("doctors")
-            var docs = ArrayList<String>(5)
+            val values = FirebaseDatabase.getInstance().getReference("doctors")
+            val docs = ArrayList<Doctor>(5)
+            values.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    for (child in p0.children) {
+                        docs.add(child.getValue(Doctor::class.java)!!)
+                    }
+                }
 
-            return null
+                override fun onCancelled(p0: DatabaseError) {
+                }
+            })
+            return docs
         }
     }
 }

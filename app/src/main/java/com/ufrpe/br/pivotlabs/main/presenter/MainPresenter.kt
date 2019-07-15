@@ -30,11 +30,11 @@ class MainPresenter : MainMVP.PresenterImpl {
     }
 
     override fun getAboutActivityIntent(act: Activity): Intent {
-        return Intent(act,AboutActivity::class.java)
+        return Intent(act, AboutActivity::class.java)
     }
 
     override fun getProfessionalSelectActivityIntent(act: Activity): Intent {
-        return Intent(act,ProfessionalSelectActivity::class.java)
+        return Intent(act, ProfessionalSelectActivity::class.java)
     }
 
 }

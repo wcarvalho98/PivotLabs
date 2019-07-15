@@ -17,6 +17,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         setContentView(R.layout.activity_professional_select)
         btnHome.setOnClickListener { returnToMainActivity() }
         setSpinnerOptions()
+        presenter.setView(this)
     }
 
 
