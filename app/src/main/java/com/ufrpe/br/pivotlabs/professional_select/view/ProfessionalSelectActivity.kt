@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ufrpe.br.pivotlabs.R
+import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.professional_select.ProfessionalSelectMVP
 import com.ufrpe.br.pivotlabs.professional_select.presenter.ProfessionalSelectPresenter
 import kotlinx.android.synthetic.main.activity_professional_select.*
@@ -20,22 +21,20 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         setSpinnerOptions()
         presenter.setView(this)
         rvDoctors.layoutManager = LinearLayoutManager(this)
-        rvDoctors.adapter = ProfessionalAdapter(presenter.getDoctors(), this)
-        btnSearch.setOnClickListener { refreshDoctors() }
+        btnSearch.setOnClickListener { fetchFilteredProfessionals() }
     }
 
-
-    /** Set the options for each dropdown to be used as specialty filter
+    /** Set the options for each dropdown to be used as speciality filter
      * */
     private fun setSpinnerOptions(){
 
-        val specialtySpinner = spnSpeciality
+        val specialitySpinner = spnSpeciality
         ArrayAdapter.createFromResource(this,
-            R.array.specialty,
+            R.array.speciality,
             R.layout.text_spinner).also { adapter->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-                specialtySpinner.adapter = adapter
+                specialitySpinner.adapter = adapter
             }
         val citySpinner = spnCity
         ArrayAdapter.createFromResource(this,
@@ -55,7 +54,6 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         }
     }
 
-
     override fun returnToMainActivity() {
         val intent = presenter.getHomeIntent(this)
         startActivity(intent)
@@ -68,14 +66,11 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
      * and displays it
      * */
     override fun fetchFilteredProfessionals() {
-        presenter.evaluateFetchfilteredProfetionals(spnSpeciality.selectedItem.toString(),
-                                                    spnCity.selectedItem.toString(),
-                                                    spnDayPeroid.selectedItem.toString())
+        presenter.evaluateFetchfilteredProfetionals(spnSpeciality.selectedItem.toString())
     }
 
-    private fun refreshDoctors() {
-        rvDoctors.adapter = ProfessionalAdapter(presenter.getDoctors(), this)
+    override fun refreshDoctors(doctors: ArrayList<Doctor>) {
+        rvDoctors.adapter = ProfessionalAdapter(doctors, this)
     }
-
 
 }

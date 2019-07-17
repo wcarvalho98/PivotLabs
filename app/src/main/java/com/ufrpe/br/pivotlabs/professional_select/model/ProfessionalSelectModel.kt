@@ -10,9 +10,9 @@ import com.ufrpe.br.pivotlabs.professional_select.ProfessionalSelectMVP
 
 class ProfessionalSelectModel(var presenter: ProfessionalSelectMVP.PresenterImpl) : ProfessionalSelectMVP.ModelImpl{
 
-    override fun fetchAllprofessionals(): ArrayList<Doctor> = RequestProfessionalsFromRemote().execute().get()
+    override fun fetchAllprofessionals(): ArrayList<Doctor> = RequestProfessionalsFromRemote(presenter).execute().get()
 
-    class RequestProfessionalsFromRemote : AsyncTask<Void,Void,ArrayList<Doctor>>(){
+    class RequestProfessionalsFromRemote(var presenter: ProfessionalSelectMVP.PresenterImpl) : AsyncTask<Void,Void,ArrayList<Doctor>>(){
 
         override fun doInBackground(vararg params: Void?): ArrayList<Doctor>? {
             val values = FirebaseDatabase.getInstance().getReference("doctors")
@@ -28,6 +28,11 @@ class ProfessionalSelectModel(var presenter: ProfessionalSelectMVP.PresenterImpl
                 }
             })
             return docs
+        }
+
+        override fun onPostExecute(result: ArrayList<Doctor>?) {
+            super.onPostExecute(result)
+            presenter.populateUi(result!!)
         }
     }
 }

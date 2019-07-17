@@ -11,14 +11,15 @@ interface ProfessionalSelectMVP{
     }
 
     interface PresenterImpl{
-        fun getHomeIntent(activity: ProfessionalSelectActivity):Intent
-        fun evaluateFetchfilteredProfetionals(speciality:String, city:String, dayPeriod:String)
+        fun populateUi(docs: ArrayList<Doctor>)
         fun setView(view: ProfessionalSelectActivity)
-        fun getDoctors(): ArrayList<Doctor>
+        fun evaluateFetchfilteredProfetionals(speciality: String)
+        fun getHomeIntent(activity: ProfessionalSelectActivity): Intent
     }
 
     interface ViewImpl{
         fun returnToMainActivity()
         fun fetchFilteredProfessionals()
+        fun refreshDoctors(doctors: ArrayList<Doctor>)
     }
 }

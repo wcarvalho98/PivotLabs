@@ -39,10 +39,10 @@
     </string>
 
     <!--ProfessionalSelectActivity-->
-    <string-array name="specialty">
+    <string-array name="speciality">
+        <item>All</item>
         <item>Dermatologist</item>
         <item>Nutritionist</item>
-        <item>All</item>
     </string-array>
 
 

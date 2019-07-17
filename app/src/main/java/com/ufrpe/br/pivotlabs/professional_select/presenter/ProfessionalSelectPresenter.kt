@@ -9,25 +9,37 @@ import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivit
 
 class ProfessionalSelectPresenter : ProfessionalSelectMVP.PresenterImpl{
 
-    private var model: ProfessionalSelectMVP.ModelImpl = ProfessionalSelectModel(this)
-    private lateinit var view: ProfessionalSelectMVP.ViewImpl
     private var doctors = ArrayList<Doctor>()
+    private lateinit var view: ProfessionalSelectMVP.ViewImpl
+    private var model: ProfessionalSelectMVP.ModelImpl = ProfessionalSelectModel(this)
 
-    override fun evaluateFetchfilteredProfetionals(speciality: String, city: String, dayPeriod: String) {
-
+    override fun evaluateFetchfilteredProfetionals(speciality: String) {
+        populateUi(filterBySpeciality(speciality))
     }
 
     override fun setView(view: ProfessionalSelectActivity) {
         this.view = view
-        doctors = model.fetchAllprofessionals()
+        this.doctors = model.fetchAllprofessionals()
     }
 
+    private fun filterBySpeciality(speciality: String): ArrayList<Doctor> {
+        return if (speciality == "All")
+            doctors
+        else {
+            val docs = ArrayList<Doctor>()
+            for (doc in doctors) {
+                if (doc.speciality.equals(speciality))
+                    docs.add(doc)
+            }
+            docs
+        }
+    }
+
+    override fun populateUi(docs: ArrayList<Doctor>) {
+        view.refreshDoctors(docs)
+    }
     override fun getHomeIntent(activity: ProfessionalSelectActivity): Intent {
         return Intent(activity, MainActivity::class.java)
-    }
-
-    override fun getDoctors(): ArrayList<Doctor> {
-        return doctors
     }
 
 }
