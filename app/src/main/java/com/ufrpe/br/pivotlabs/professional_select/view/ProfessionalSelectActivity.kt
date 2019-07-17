@@ -3,6 +3,7 @@ package com.ufrpe.br.pivotlabs.professional_select.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.professional_select.ProfessionalSelectMVP
 import com.ufrpe.br.pivotlabs.professional_select.presenter.ProfessionalSelectPresenter
@@ -18,6 +19,9 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         btnHome.setOnClickListener { returnToMainActivity() }
         setSpinnerOptions()
         presenter.setView(this)
+        rvDoctors.layoutManager = LinearLayoutManager(this)
+        rvDoctors.adapter = ProfessionalAdapter(presenter.getDoctors(), this)
+        btnSearch.setOnClickListener { refreshDoctors() }
     }
 
 
@@ -25,7 +29,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
      * */
     private fun setSpinnerOptions(){
 
-        var specialtySpinner = spnSpecialty
+        val specialtySpinner = spnSpeciality
         ArrayAdapter.createFromResource(this,
             R.array.specialty,
             R.layout.text_spinner).also { adapter->
@@ -33,7 +37,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
 
                 specialtySpinner.adapter = adapter
             }
-        var citySpinner = spnCity
+        val citySpinner = spnCity
         ArrayAdapter.createFromResource(this,
             R.array.city_names,
             R.layout.text_spinner).also { adapter->
@@ -42,7 +46,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
         }
 
 
-        var dayPeriodSpinner = spnDayPeroid
+        val dayPeriodSpinner = spnDayPeroid
         ArrayAdapter.createFromResource(this,
             R.array.day_periods,
             R.layout.text_spinner).also { adapter->
@@ -53,7 +57,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
 
 
     override fun returnToMainActivity() {
-        var intent = presenter.getHomeIntent(this)
+        val intent = presenter.getHomeIntent(this)
         startActivity(intent)
         this.finish()
     }
@@ -64,9 +68,13 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
      * and displays it
      * */
     override fun fetchFilteredProfessionals() {
-        presenter.evaluateFetchfilteredProfetionals(spnSpecialty.selectedItem.toString(),
+        presenter.evaluateFetchfilteredProfetionals(spnSpeciality.selectedItem.toString(),
                                                     spnCity.selectedItem.toString(),
                                                     spnDayPeroid.selectedItem.toString())
+    }
+
+    private fun refreshDoctors() {
+        rvDoctors.adapter = ProfessionalAdapter(presenter.getDoctors(), this)
     }
 
 

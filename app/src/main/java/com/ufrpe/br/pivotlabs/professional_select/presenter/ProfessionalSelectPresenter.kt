@@ -11,10 +11,10 @@ class ProfessionalSelectPresenter : ProfessionalSelectMVP.PresenterImpl{
 
     private var model: ProfessionalSelectMVP.ModelImpl = ProfessionalSelectModel(this)
     private lateinit var view: ProfessionalSelectMVP.ViewImpl
-    private lateinit var doctors: ArrayList<Doctor>
+    private var doctors = ArrayList<Doctor>()
 
     override fun evaluateFetchfilteredProfetionals(speciality: String, city: String, dayPeriod: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun setView(view: ProfessionalSelectActivity) {
@@ -24,6 +24,10 @@ class ProfessionalSelectPresenter : ProfessionalSelectMVP.PresenterImpl{
 
     override fun getHomeIntent(activity: ProfessionalSelectActivity): Intent {
         return Intent(activity, MainActivity::class.java)
+    }
+
+    override fun getDoctors(): ArrayList<Doctor> {
+        return doctors
     }
 
 }
