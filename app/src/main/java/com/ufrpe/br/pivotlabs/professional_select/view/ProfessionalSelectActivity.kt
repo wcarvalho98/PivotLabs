@@ -10,7 +10,7 @@ import com.ufrpe.br.pivotlabs.professional_select.ProfessionalSelectMVP
 import com.ufrpe.br.pivotlabs.professional_select.presenter.ProfessionalSelectPresenter
 import kotlinx.android.synthetic.main.activity_professional_select.*
 
-class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.ViewImpl {
+class ProfessionalSelectActivity : AppCompatActivity(), ProfessionalSelectMVP.ViewImpl {
 
     private var presenter: ProfessionalSelectMVP.PresenterImpl = ProfessionalSelectPresenter()
 
