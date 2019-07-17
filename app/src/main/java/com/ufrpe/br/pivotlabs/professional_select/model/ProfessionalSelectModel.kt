@@ -27,12 +27,8 @@ class ProfessionalSelectModel(var presenter: ProfessionalSelectMVP.PresenterImpl
                 override fun onCancelled(p0: DatabaseError) {
                 }
             })
+            presenter.populateUi(docs)
             return docs
-        }
-
-        override fun onPostExecute(result: ArrayList<Doctor>?) {
-            super.onPostExecute(result)
-            presenter.populateUi(result!!)
         }
     }
 }

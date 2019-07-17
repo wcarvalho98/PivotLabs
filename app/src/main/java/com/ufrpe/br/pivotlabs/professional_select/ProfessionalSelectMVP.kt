@@ -14,7 +14,6 @@ interface ProfessionalSelectMVP{
         fun populateUi(docs: ArrayList<Doctor>)
         fun setView(view: ProfessionalSelectActivity)
         fun evaluateFetchfilteredProfetionals(speciality: String)
-        fun getHomeIntent(activity: ProfessionalSelectActivity): Intent
     }
 
     interface ViewImpl{

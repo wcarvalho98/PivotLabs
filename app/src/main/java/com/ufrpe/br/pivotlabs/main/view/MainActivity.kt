@@ -1,7 +1,5 @@
 package com.ufrpe.br.pivotlabs.main.view
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ufrpe.br.pivotlabs.R
@@ -33,15 +31,13 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
     }
 
     override fun displayAboutActivity() {
-        var intent = presenter.getAboutActivityIntent(this)
+        val intent = presenter.getAboutActivityIntent(this)
         this.startActivity(intent)
-        this.finish()
     }
 
     override fun displayProfessionalSelectActivity(){
-        var intent = presenter.getProfessionalSelectActivityIntent(this)
+        val intent = presenter.getProfessionalSelectActivityIntent(this)
         this.startActivity(intent)
-        this.finish()
     }
 
 }

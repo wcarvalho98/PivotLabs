@@ -30,28 +30,26 @@
     <!--Informacoes extras-->
     <string name="email_address">pivotlabs@gmail.com</string>
 
-
     <!--Activity Quem somos-->
     <string name="textao_quem_somos">
-        Somos uma empresa de tecnologia que visa construir um mundo melhor através do bem estar e comodidades as
-        pessoas.
+        Somos uma empresa de tecnologia que visa construir um mundo melhor através do bem estar e comodidades as pessoas.
         Trazendo inovação aliado a sustentabilidade.
     </string>
 
     <!--ProfessionalSelectActivity-->
-    <string-array name="specialty">
-            <item>Todos</item>
-            <item>Dematologista</item>
-            <item>Nutricionnista</item>
+    <string-array name="speciality">
+        <item>Todos</item>
+        <item>Dermatologista</item>
+        <item>Nutricionnista</item>
     </string-array>
 
     <string-array name="city_names">
         <item>Todos</item>
-        <item>Recife</item>
-        <item>Camargibe</item>
-        <item>Jaboatão</item>
-        <item>São Lourenço</item>
         <item>Cabo de Santo Agostinho</item>
+        <item>Camaragibe</item>
+        <item>Jaboatão</item>
+        <item>Recife</item>
+        <item>São Lourenço</item>
     </string-array>
 
     <string-array name="day_periods">

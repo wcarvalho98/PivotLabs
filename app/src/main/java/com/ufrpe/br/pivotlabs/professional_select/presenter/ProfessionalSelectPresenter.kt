@@ -1,8 +1,6 @@
 package com.ufrpe.br.pivotlabs.professional_select.presenter
 
-import android.content.Intent
 import com.ufrpe.br.pivotlabs.beans.Doctor
-import com.ufrpe.br.pivotlabs.main.view.MainActivity
 import com.ufrpe.br.pivotlabs.professional_select.ProfessionalSelectMVP
 import com.ufrpe.br.pivotlabs.professional_select.model.ProfessionalSelectModel
 import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
@@ -37,9 +35,6 @@ class ProfessionalSelectPresenter : ProfessionalSelectMVP.PresenterImpl{
 
     override fun populateUi(docs: ArrayList<Doctor>) {
         view.refreshDoctors(docs)
-    }
-    override fun getHomeIntent(activity: ProfessionalSelectActivity): Intent {
-        return Intent(activity, MainActivity::class.java)
     }
 
 }

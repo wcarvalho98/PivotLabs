@@ -45,22 +45,20 @@
         <item>Nutritionist</item>
     </string-array>
 
-
     <string-array name="city_names">
-        <item>Recife</item>
-        <item>Camargibe</item>
-        <item>Jaboatão</item>
-        <item>São Lourenço</item>
-        <item>Cabo de Santo Agostinho</item>
         <item>All</item>
+        <item>Cabo de Santo Agostinho</item>
+        <item>Camaragibe</item>
+        <item>Jaboatão</item>
+        <item>Recife</item>
+        <item>São Lourenço</item>
     </string-array>
 
     <string-array name="day_periods">
+        <item>All</item>
         <item>Morning</item>
         <item>Afternoon</item>
         <item>Night</item>
-        <item>All</item>
     </string-array>
-
 
 </resources>

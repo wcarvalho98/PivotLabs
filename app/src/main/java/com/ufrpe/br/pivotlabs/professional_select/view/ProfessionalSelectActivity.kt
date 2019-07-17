@@ -55,9 +55,7 @@ class ProfessionalSelectActivity : AppCompatActivity(),ProfessionalSelectMVP.Vie
     }
 
     override fun returnToMainActivity() {
-        val intent = presenter.getHomeIntent(this)
-        startActivity(intent)
-        this.finish()
+        onBackPressed()
     }
 
     /**
