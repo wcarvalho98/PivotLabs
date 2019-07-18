@@ -6,6 +6,7 @@ import com.ufrpe.br.pivotlabs.about.view.AboutActivity
 import com.ufrpe.br.pivotlabs.main.MainMVP
 import com.ufrpe.br.pivotlabs.main.model.MainImpl
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
+import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
 
 class MainPresenter : MainMVP.PresenterImpl {
 
