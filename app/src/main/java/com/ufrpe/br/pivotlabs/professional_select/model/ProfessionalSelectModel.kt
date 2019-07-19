@@ -17,11 +17,14 @@ class ProfessionalSelectModel(var presenter: ProfessionalSelectMVP.PresenterImpl
         override fun doInBackground(vararg params: Void?): ArrayList<Doctor>? {
             val values = FirebaseDatabase.getInstance().getReference("doctors")
             val docs = ArrayList<Doctor>(5)
+            val keys  = ArrayList<String>(5)
             values.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     for (child in p0.children) {
+                        keys.add(child.key.toString())
                         docs.add(child.getValue(Doctor::class.java)!!)
                     }
+                    presenter.saveDoctorKeys(keys)
                     presenter.populateUi(docs)
                 }
 

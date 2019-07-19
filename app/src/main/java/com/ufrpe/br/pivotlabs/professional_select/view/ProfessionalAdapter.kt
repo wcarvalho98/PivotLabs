@@ -11,7 +11,7 @@ import com.ufrpe.br.pivotlabs.ScheduleActivity
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import kotlinx.android.synthetic.main.professional_item.view.*
 
-class ProfessionalAdapter(var items: ArrayList<Doctor>, var context: Context) :
+class ProfessionalAdapter(var itemKeys: ArrayList<String>,var items: ArrayList<Doctor>, var context: Context) :
     RecyclerView.Adapter<ProfessionalAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,6 +29,7 @@ class ProfessionalAdapter(var items: ArrayList<Doctor>, var context: Context) :
         holder.item.setOnClickListener {
             var intent = Intent(context, ScheduleActivity::class.java)
             intent.putExtra("professional_name", items[position].name)
+            intent.putExtra("professional_id",itemKeys[position])
             context.startActivity(intent)
         }
 

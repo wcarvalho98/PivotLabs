@@ -7,6 +7,8 @@ import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivit
 
 class ProfessionalSelectPresenter : ProfessionalSelectMVP.PresenterImpl{
 
+
+    var doctorKeys = ArrayList<String>()
     private var doctors = ArrayList<Doctor>()
     private lateinit var view: ProfessionalSelectMVP.ViewImpl
     private var model: ProfessionalSelectMVP.ModelImpl = ProfessionalSelectModel(this)
@@ -31,6 +33,10 @@ class ProfessionalSelectPresenter : ProfessionalSelectMVP.PresenterImpl{
             }
             docs
         }
+    }
+
+    override fun saveDoctorKeys(keys: ArrayList<String>) {
+        doctorKeys = keys
     }
 
     override fun populateUi(docs: ArrayList<Doctor>) {

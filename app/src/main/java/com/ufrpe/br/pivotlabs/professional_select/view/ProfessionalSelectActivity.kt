@@ -67,8 +67,8 @@ class ProfessionalSelectActivity : AppCompatActivity(), ProfessionalSelectMVP.Vi
         presenter.evaluateFetchfilteredProfetionals(spnSpeciality.selectedItem.toString())
     }
 
-    override fun refreshDoctors(doctors: ArrayList<Doctor>) {
-        rvDoctors.adapter = ProfessionalAdapter(doctors, this)
+    override fun refreshDoctors(doctorKeys:ArrayList<String>,doctors: ArrayList<Doctor>) {
+        rvDoctors.adapter = ProfessionalAdapter(doctorKeys,doctors, this)
     }
 
 }

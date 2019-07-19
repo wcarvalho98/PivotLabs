@@ -10,6 +10,7 @@ interface ProfessionalSelectMVP{
     }
 
     interface PresenterImpl{
+        fun saveDoctorKeys(keys:ArrayList<String>)
         fun populateUi(docs: ArrayList<Doctor>)
         fun setView(view: ProfessionalSelectActivity)
         fun evaluateFetchfilteredProfetionals(speciality: String)
@@ -18,6 +19,6 @@ interface ProfessionalSelectMVP{
     interface ViewImpl{
         fun returnToMainActivity()
         fun fetchFilteredProfessionals()
-        fun refreshDoctors(doctors: ArrayList<Doctor>)
+        fun refreshDoctors(doctorKeys:ArrayList<String>,doctors: ArrayList<Doctor>)
     }
 }
