@@ -23,6 +23,8 @@ class ProfessionalDetailActivity : AppCompatActivity(), ProfessionalDetailMVP.Pr
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_professional_detail)
 
+        imgBtnBackToProfessionalSelect.setOnClickListener { returnToProfessionalSelectActivity() }
+        imgBtnBackToMain.setOnClickListener { returnToMainActivity() }
         getDataFromPreviousActivity()
         fillTextViewsWithDoctorData()
 

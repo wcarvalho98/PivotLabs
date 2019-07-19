@@ -3,6 +3,7 @@ package com.ufrpe.br.pivotlabs.professional_detail
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 
 class ProfessionalDetailMVP{
@@ -15,6 +16,7 @@ class ProfessionalDetailMVP{
     }
 
     interface ProfessionalDetailPresenterImpl{
+        fun getProfessionalId():String
         fun setProfessionalId(key:String)
         fun setView(activity: ProfessionalDetailActivity)
         fun populateSchedulesList(daySchedule : String)
@@ -22,7 +24,7 @@ class ProfessionalDetailMVP{
 
 
     interface ProfessionalDetailModelImpl{
-        fun fetchAllSchedules():ArrayList<String>
+        fun fetchAllSchedules():ArrayList<DaySchedule>
     }
 
 
