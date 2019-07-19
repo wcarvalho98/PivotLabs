@@ -11,6 +11,11 @@
             android:roundIcon="@drawable/ic_pivot"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".professional_detail.view.ProfessionalDetailActivity"
+                android:label="@string/title_activity_professional_detail"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".professional_select.view.ProfessionalSelectActivity">
         </activity>
         <activity android:name=".signup.view.SignUpActivity">
