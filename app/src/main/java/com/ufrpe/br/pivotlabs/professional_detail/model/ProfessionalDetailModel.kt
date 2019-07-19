@@ -29,15 +29,15 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
                 override fun onDataChange(p0: DataSnapshot) {
 
                     for(date in p0.children){
-                        var tempKey = date.key.toString()
+                        val tempKey = date.key.toString()
 
-                        var listDayPeriods = ArrayList<DayPeriod>(2)
+                        val listDayPeriods = ArrayList<DayPeriod>(2)
                         for (day_period in date.children){
-                            var tempDayPeriodKey = day_period.key.toString()
+                            val tempDayPeriodKey = day_period.key.toString()
 
-                            var listIndentifiedAppointments = ArrayList<IndentifiedAppointment>()
+                            val listIndentifiedAppointments = ArrayList<IndentifiedAppointment>()
                             for(appointment in day_period.children){
-                                var ap = appointment.getValue(Appointment::class.java)
+                                val ap = appointment.getValue(Appointment::class.java)
                                 listIndentifiedAppointments.add(IndentifiedAppointment(appointment.key.toString(),ap!!))
                             }
                             listDayPeriods.add(DayPeriod(tempDayPeriodKey,listIndentifiedAppointments))
@@ -45,16 +45,18 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
                         }
                         listDaySchedule.add(DaySchedule(tempKey,listDayPeriods))
                     }
+                    presenter.populateSchedulesList(listDaySchedule)
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
             })
+
+            presenter.populateSchedulesList(listDaySchedule)
             return listDaySchedule
         }
 
     }
-
 
 }

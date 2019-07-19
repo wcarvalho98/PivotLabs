@@ -10,16 +10,18 @@ import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivit
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
 
     lateinit var professional_id :String
-    var daySchedyles: ArrayList<DaySchedule> = ArrayList<DaySchedule>()
+    private var daySchedules: ArrayList<DaySchedule> = ArrayList<DaySchedule>()
     private lateinit var view : ProfessionalDetailMVP.ProfessionalDetailViewImpl
     private var model : ProfessionalDetailMVP.ProfessionalDetailModelImpl = ProfessionalDetailModel(this)
 
     override fun setView(activity: ProfessionalDetailActivity) {
         view = activity
+        daySchedules = model.fetchAllSchedules()
+
     }
 
-    override fun populateSchedulesList(daySchedule: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun populateSchedulesList(listDaySchedules: ArrayList<DaySchedule>) {
+        view.refreshScheduleList(listDaySchedules)
     }
 
     override fun setProfessionalId(key: String) {

@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import com.ufrpe.br.pivotlabs.R
+import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
@@ -14,7 +15,6 @@ import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivit
 import kotlinx.android.synthetic.main.activity_professional_detail.*
 
 class ProfessionalDetailActivity : AppCompatActivity(), ProfessionalDetailMVP.ProfessionalDetailViewImpl {
-
 
     val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl = ProfessionalDetailPresenter()
     val doctor: Doctor = Doctor()
@@ -58,6 +58,10 @@ class ProfessionalDetailActivity : AppCompatActivity(), ProfessionalDetailMVP.Pr
         var intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
         this.finish()
+    }
+
+    override fun refreshScheduleList(scheduleList: ArrayList<DaySchedule>) {
+        rvSchedules.adapter = ScheduleAdapter(scheduleList,this)
     }
 
 }

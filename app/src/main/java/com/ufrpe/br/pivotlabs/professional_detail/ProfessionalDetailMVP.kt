@@ -13,13 +13,14 @@ class ProfessionalDetailMVP{
         fun fillTextViewsWithDoctorData()
         fun returnToProfessionalSelectActivity()
         fun returnToMainActivity()
+        fun refreshScheduleList(scheduleList : ArrayList<DaySchedule>)
     }
 
     interface ProfessionalDetailPresenterImpl{
         fun getProfessionalId():String
         fun setProfessionalId(key:String)
         fun setView(activity: ProfessionalDetailActivity)
-        fun populateSchedulesList(daySchedule : String)
+        fun populateSchedulesList(listDaySchedules : ArrayList<DaySchedule>)
     }
 
 
