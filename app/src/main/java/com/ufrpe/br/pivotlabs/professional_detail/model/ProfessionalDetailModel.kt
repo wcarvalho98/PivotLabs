@@ -36,9 +36,9 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
                             val tempDayPeriodKey = day_period.key.toString()
 
                             val listIndentifiedAppointments = ArrayList<IndentifiedAppointment>()
-                            for(appointment in day_period.children){
-                                val ap = appointment.getValue(Appointment::class.java)
-                                listIndentifiedAppointments.add(IndentifiedAppointment(appointment.key.toString(),ap!!))
+                            for(apt in day_period.children){
+                                val ap = apt.getValue(Appointment::class.java)
+                                listIndentifiedAppointments.add(IndentifiedAppointment(apt.key.toString(),ap!!))
                             }
                             listDayPeriods.add(DayPeriod(tempDayPeriodKey,listIndentifiedAppointments))
 

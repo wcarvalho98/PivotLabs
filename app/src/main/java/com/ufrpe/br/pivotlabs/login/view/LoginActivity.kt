@@ -2,6 +2,7 @@ package com.ufrpe.br.pivotlabs.login.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.ufrpe.br.pivotlabs.R
@@ -11,6 +12,7 @@ import com.ufrpe.br.pivotlabs.login.presenter.LoginPresenter
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.tvEmail
+import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
 
@@ -19,7 +21,6 @@ class LoginActivity : AppCompatActivity(), LoginMVP.LoginActivityImpl {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         presenter.setView(this)
         btLogin.setOnClickListener { login() }
         btnSignUp.setOnClickListener { signUp() }
