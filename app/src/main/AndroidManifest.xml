@@ -11,6 +11,11 @@
             android:roundIcon="@drawable/ic_pivot"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".ScheduleActivity"
+                android:label="@string/title_activity_schedule"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".professional_detail.view.ProfessionalDetailActivity">
         </activity>
         <activity android:name=".professional_select.view.ProfessionalSelectActivity">

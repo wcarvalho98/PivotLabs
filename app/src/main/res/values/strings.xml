@@ -60,5 +60,6 @@
         <item>Afternoon</item>
         <item>Night</item>
     </string-array>
+    <string name="title_activity_schedule">ScheduleActivity</string>
 
 </resources>

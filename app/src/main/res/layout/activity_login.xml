@@ -59,8 +59,10 @@
                 <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/prompt_password" android:inputType="textPassword"
-                        android:paddingStart="8dp" android:id="@+id/tvPassword"
+                        android:hint="@string/prompt_password"
+                        android:inputType="textPassword"
+                        android:paddingStart="8dp"
+                        android:id="@+id/tvPassword"
                 />
             </com.google.android.material.textfield.TextInputLayout>
             <Button
