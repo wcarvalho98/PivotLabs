@@ -20,15 +20,6 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getProfessionalSelectActivityIntent(activity: Activity): Intent {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun getMainActivityIntent(activity: Activity): Intent {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-
     override fun setProfessionalId(key: String) {
         professional_id = key
     }

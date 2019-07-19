@@ -18,8 +18,6 @@ class ProfessionalDetailMVP{
         fun setProfessionalId(key:String)
         fun setView(activity: ProfessionalDetailActivity)
         fun populateSchedulesList(daySchedule : String)
-        fun getProfessionalSelectActivityIntent(activity : Activity): Intent
-        fun getMainActivityIntent(activity: Activity): Intent
     }
 
 
