@@ -22,6 +22,7 @@ class ProfessionalSelectModel(var presenter: ProfessionalSelectMVP.PresenterImpl
                     for (child in p0.children) {
                         docs.add(child.getValue(Doctor::class.java)!!)
                     }
+                    presenter.populateUi(docs)
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
