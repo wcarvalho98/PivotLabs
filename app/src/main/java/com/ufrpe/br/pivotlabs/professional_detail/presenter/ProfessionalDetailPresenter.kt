@@ -8,7 +8,7 @@ import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivit
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
 
-
+    lateinit var professional_id :String
     private lateinit var view : ProfessionalDetailMVP.ProfessionalDetailViewImpl
     private var model : ProfessionalDetailMVP.ProfessionalDetailModelImpl = ProfessionalDetailModel(this)
 
@@ -26,6 +26,11 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
 
     override fun getMainActivityIntent(activity: Activity): Intent {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+
+    override fun setProfessionalId(key: String) {
+        professional_id = key
     }
 
 }

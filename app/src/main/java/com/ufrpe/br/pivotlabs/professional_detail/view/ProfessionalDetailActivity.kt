@@ -1,32 +1,61 @@
 package com.ufrpe.br.pivotlabs.professional_detail.view
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import com.ufrpe.br.pivotlabs.R
+import com.ufrpe.br.pivotlabs.beans.Doctor
+import com.ufrpe.br.pivotlabs.main.view.MainActivity
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
+import com.ufrpe.br.pivotlabs.professional_detail.presenter.ProfessionalDetailPresenter
+import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
 
 import kotlinx.android.synthetic.main.activity_professional_detail.*
 
 class ProfessionalDetailActivity : AppCompatActivity(), ProfessionalDetailMVP.ProfessionalDetailViewImpl {
 
+
+    val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl = ProfessionalDetailPresenter()
+    val doctor: Doctor = Doctor()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_professional_detail)
-        setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        getDataFromPreviousActivity()
+        fillTextViewsWithDoctorData()
+
+    }
+
+    override fun getDataFromPreviousActivity() {
+        val intent = getIntent()
+        val b = intent.extras
+        if(b != null){
+            presenter.setProfessionalId(b.getString("professional_id"))
+            doctor.name = b.getString("professional_name")
+            doctor.speciality = b.getString("professional_speciality")
         }
     }
 
+    override fun fillTextViewsWithDoctorData() {
+        if(doctor.name != "" )
+            tvProfessionalName.text = doctor.name
+        if(doctor.speciality != null)
+            tvSpeciality.text = doctor.speciality
+    }
+
+
     override fun returnToProfessionalSelectActivity() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        var intent = Intent(this,ProfessionalSelectActivity::class.java)
+        startActivity(intent)
+        this.finish()
     }
 
     override fun returnToMainActivity() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        var intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
+        this.finish()
     }
 
 }
