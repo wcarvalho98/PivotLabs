@@ -1,13 +1,11 @@
 package com.ufrpe.br.pivotlabs.professional_select.view
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ufrpe.br.pivotlabs.R
-import com.ufrpe.br.pivotlabs.ScheduleActivity
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import kotlinx.android.synthetic.main.professional_item.view.*
 
@@ -24,14 +22,15 @@ class ProfessionalAdapter(var itemKeys: ArrayList<String>,var items: ArrayList<D
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvProfessionalName.text = items[position].name
+        TODO("Make the change of activity of ")
+        /**holder.tvProfessionalName.text = items[position].name
         holder.tvSpeciality.text = items[position].speciality
         holder.item.setOnClickListener {
             var intent = Intent(context, ScheduleActivity::class.java)
             intent.putExtra("professional_name", items[position].name)
             intent.putExtra("professional_id",itemKeys[position])
             context.startActivity(intent)
-        }
+        }*/
 
     }
 

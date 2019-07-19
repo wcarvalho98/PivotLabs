@@ -40,7 +40,7 @@ class ProfessionalSelectPresenter : ProfessionalSelectMVP.PresenterImpl{
     }
 
     override fun populateUi(docs: ArrayList<Doctor>) {
-        view.refreshDoctors(docs)
+        view.refreshDoctors(doctorKeys,docs)
     }
 
 }
