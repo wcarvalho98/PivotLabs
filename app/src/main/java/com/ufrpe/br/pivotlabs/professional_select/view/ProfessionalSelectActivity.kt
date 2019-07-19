@@ -70,5 +70,4 @@ class ProfessionalSelectActivity : AppCompatActivity(), ProfessionalSelectMVP.Vi
     override fun refreshDoctors(doctorKeys:ArrayList<String>,doctors: ArrayList<Doctor>) {
         rvDoctors.adapter = ProfessionalAdapter(doctorKeys,doctors, this)
     }
-
 }

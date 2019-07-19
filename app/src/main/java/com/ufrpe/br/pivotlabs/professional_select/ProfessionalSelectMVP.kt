@@ -1,5 +1,7 @@
 package com.ufrpe.br.pivotlabs.professional_select
 
+import android.app.Activity
+import android.content.Intent
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
 

@@ -1,12 +1,14 @@
 package com.ufrpe.br.pivotlabs.professional_select.presenter
 
+import android.app.Activity
+import android.content.Intent
 import com.ufrpe.br.pivotlabs.beans.Doctor
+import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 import com.ufrpe.br.pivotlabs.professional_select.ProfessionalSelectMVP
 import com.ufrpe.br.pivotlabs.professional_select.model.ProfessionalSelectModel
 import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
 
 class ProfessionalSelectPresenter : ProfessionalSelectMVP.PresenterImpl{
-
 
     var doctorKeys = ArrayList<String>()
     private var doctors = ArrayList<Doctor>()
