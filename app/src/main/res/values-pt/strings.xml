@@ -59,4 +59,8 @@
         <item>Noite</item>
     </string-array>
 
+
+    <!--Professional Detail Activity-->
+    <string name="schedules">Horários:</string>
+
 </resources>

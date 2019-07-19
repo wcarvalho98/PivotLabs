@@ -60,7 +60,9 @@
         <item>Afternoon</item>
         <item>Night</item>
     </string-array>
-    <string name="title_activity_schedule">ScheduleActivity</string>
-    <string name="title_activity_professional_detail">ProfessionalDetailActivity</string>
+
+
+    <!--Professional Detail Activity-->
+    <string name="schedules">Schedules:</string>
 
 </resources>
