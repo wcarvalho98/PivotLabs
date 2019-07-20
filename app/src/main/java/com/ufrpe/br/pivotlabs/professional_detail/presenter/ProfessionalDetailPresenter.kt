@@ -18,15 +18,12 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
 
     lateinit var professional_id :String
     var doctor  = Doctor()
+    var patientAppointment = PatientAppointment()
     private var daySchedules: ArrayList<DaySchedule> = ArrayList<DaySchedule>()
     private lateinit var view : ProfessionalDetailMVP.ProfessionalDetailViewImpl
     private lateinit var fragment: Fragment
     private var model : ProfessionalDetailMVP.ProfessionalDetailModelImpl = ProfessionalDetailModel(this)
 
-
-    var date = ""
-    var dayPeriod = ""
-    var appointmentId = ""
 
     override fun setView(activity: ProfessionalDetailActivity) {
         view = activity
@@ -72,6 +69,7 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
             professional_id =  b.getString("professional_id")!!
             doctor.name = b.getString("professional_name")!!
             doctor.speciality = b.getString("professional_speciality")
+            patientAppointment.doctorId = professional_id
         }
     }
 
@@ -80,15 +78,15 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     }
 
     override fun onDateChosen(date: String) {
-        this.date = date
+        this.patientAppointment.date = date
     }
 
     override fun onDayPeriodChosen(dayPeriod: String) {
-        this.dayPeriod = dayPeriod
+        this.patientAppointment.dayPeriod = dayPeriod
     }
 
     override fun onAppointmentChosen(appointment: IndentifiedAppointment) {
-        appointmentId = appointment.id
+        this.patientAppointment.apointmentId  = appointment.id
     }
 
 }
