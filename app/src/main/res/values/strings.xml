@@ -64,7 +64,7 @@
 
     <!--Professional Detail Activity-->
     <string name="schedules">Schedules:</string>
-        <!-- Fragment DayPeriod -->
+        <!-- Fragment DayPeriodFragment -->
         <string name="text_available_dayperiods">Available Dayperiods</string>
         <!-- Fragment Appointment -->
         <string name="text_appointment">Appointments</string>

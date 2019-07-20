@@ -3,11 +3,15 @@ package com.ufrpe.br.pivotlabs.professional_detail.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment
 import com.ufrpe.br.pivotlabs.R
+import com.ufrpe.br.pivotlabs.beans.DayPeriod
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
+import com.ufrpe.br.pivotlabs.beans.IndentifiedAppointment
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import com.ufrpe.br.pivotlabs.professional_detail.presenter.ProfessionalDetailPresenter
+import com.ufrpe.br.pivotlabs.professional_detail.view.day_period.DayPeriodFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleFragment
 import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
 
@@ -18,7 +22,8 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     DayScheduleFragment.OnItemSelectedListener {
 
 
-    lateinit var dayScheduleFragment : DayScheduleFragment
+
+    lateinit var controlFragment: Fragment
     val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl = ProfessionalDetailPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,16 +59,27 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         this.finish()
     }
 
+    // FRAGMETS RELATED Procedures
+
     //This is called when a schedule has been selected from the schedules  list
     override fun onItemSelected(ds: DaySchedule) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 
-    private fun initializeDayScheduleFragment(){
-        dayScheduleFragment =
+    override fun switchToDayPeriodFragment(dayPeriod: ArrayList<DayPeriod>) {
+        controlFragment = DayPeriodFragment(dayPeriod)
+        supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,controlFragment).commit()
+    }
+
+    override fun switchToAppointmentFragment(appointment: IndentifiedAppointment) {
+        TODO("Not implemented")
+    }
+
+    override fun initializeDayScheduleFragment(){
+        controlFragment =
             DayScheduleFragment(presenter)
-        supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,dayScheduleFragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,controlFragment).commit()
     }
 
 }
