@@ -34,7 +34,7 @@ class DayScheduleFragment(val presenter: ProfessionalDetailMVP.ProfessionalDetai
         var view = inflater.inflate(R.layout.days_schedule_fragment,container,false)
         rvSchedules = view.rvSchedules
         rvSchedules.layoutManager = LinearLayoutManager(context)
-        presenter.setDayScheduleFragment(this)
+        presenter.setFragment(this)
         return view
     }
 

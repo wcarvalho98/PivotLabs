@@ -2,14 +2,18 @@ package com.ufrpe.br.pivotlabs.professional_detail.presenter
 
 import android.content.Intent
 import androidx.fragment.app.Fragment
+import com.ufrpe.br.pivotlabs.beans.DayPeriod
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import com.ufrpe.br.pivotlabs.professional_detail.model.ProfessionalDetailModel
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
+import com.ufrpe.br.pivotlabs.professional_detail.view.day_period.DayPeriodFragment
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
+
+
 
     lateinit var professional_id :String
     var doctor  = Doctor()
@@ -21,10 +25,19 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     override fun setView(activity: ProfessionalDetailActivity) {
         view = activity
         //daySchedules = model.fetchAllSchedules()
-
     }
 
-    override fun setDayScheduleFragment(fragment: Fragment) {
+    override fun setFragment(fragment: Fragment) {
+        this.fragment = fragment
+        if(this.fragment is DayScheduleFragment){
+            setDayScheduleFragment(fragment)
+        }
+        if(this.fragment is DayPeriodFragment){
+
+        }
+    }
+
+    private fun setDayScheduleFragment(fragment: Fragment) {
         this.fragment = fragment
         populateSchedulesList(model.fetchAllSchedules())
     }
@@ -33,6 +46,10 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         if(fragment is DayScheduleFragment){
             (this.fragment as DayScheduleFragment).refreshScheduleList(listDaySchedules)
         }
+    }
+
+    override fun populateDayPeriodList(listDayPeriod: ArrayList<DayPeriod>) {
+        (fragment as DayPeriodFragment).refreshDayPeriodList(listDayPeriod)
     }
 
     override fun setProfessionalId(key: String) {

@@ -23,8 +23,10 @@ class ProfessionalDetailActivity : AppCompatActivity(),
 
 
 
-    lateinit var controlFragment: Fragment
+
     val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl = ProfessionalDetailPresenter()
+    lateinit var activityFragment : Fragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,8 +70,11 @@ class ProfessionalDetailActivity : AppCompatActivity(),
 
 
     override fun switchToDayPeriodFragment(dayPeriod: ArrayList<DayPeriod>) {
-        controlFragment = DayPeriodFragment(dayPeriod)
-        supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,controlFragment).commit()
+        val newFragment = DayPeriodFragment(dayPeriod,presenter)
+        val transaction  = supportFragmentManager.beginTransaction()
+        transaction.remove(activityFragment)
+        transaction.replace(R.id.flFragmentContent,newFragment).commit()
+        activityFragment = newFragment
     }
 
     override fun switchToAppointmentFragment(appointment: IndentifiedAppointment) {
@@ -77,9 +82,8 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     }
 
     override fun initializeDayScheduleFragment(){
-        controlFragment =
-            DayScheduleFragment(presenter)
-        supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,controlFragment).commit()
+        activityFragment = DayScheduleFragment(presenter)
+        supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,activityFragment).commit()
     }
 
 }

@@ -14,10 +14,13 @@ import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import kotlinx.android.synthetic.main.fragment_day_period.view.*
 
-class DayPeriodFragment(var dayPeriodList: ArrayList<DayPeriod>):
+class DayPeriodFragment(var dayPeriodList: ArrayList<DayPeriod>,
+                        val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl):
                             Fragment(),ProfessionalDetailMVP.ProfessionalDetailViewImpl.DayPeriodFragmentImpl{
 
-
+    companion object{
+        var dayPeriodFragment : DayPeriodFragment? = null
+    }
     private lateinit var rvDayPeriods: RecyclerView
     private lateinit var imgBtnBackToSchedulesList : ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +32,8 @@ class DayPeriodFragment(var dayPeriodList: ArrayList<DayPeriod>):
 
         setRecyclerViewConfigurations(view)
         setImageButtonConfiguration(view)
-        refreshDayPeriodList(dayPeriodList)
-
+        presenter.setFragment(this)
+        presenter.populateDayPeriodList(dayPeriodList)
         return view
     }
 

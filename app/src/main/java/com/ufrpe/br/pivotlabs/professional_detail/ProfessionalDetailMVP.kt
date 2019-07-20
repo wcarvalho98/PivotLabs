@@ -26,7 +26,7 @@ class ProfessionalDetailMVP{
         }
 
         interface AppointmentFragmentImpl{
-            fun refreshAppointmentList(scheduleList : ArrayList<Appointment>)
+            fun refreshAppointmentList(scheduleList : ArrayList<IndentifiedAppointment>)
         }
 
     }
@@ -36,8 +36,9 @@ class ProfessionalDetailMVP{
         fun getDoctorObject(): Doctor
         fun setProfessionalId(key:String)
         fun setView(activity: ProfessionalDetailActivity)
-        fun setDayScheduleFragment(fragment: Fragment)
+        fun setFragment(fragment: Fragment)
         fun populateSchedulesList(listDaySchedules : ArrayList<DaySchedule>)
+        fun populateDayPeriodList(listDayPeriod : ArrayList<DayPeriod>)
         fun createDoctorObjectWithDataFromPreviousActivity(intent : Intent)
     }
 
