@@ -12,7 +12,9 @@ import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleF
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 import com.ufrpe.br.pivotlabs.professional_detail.view.appointment.AppointmentFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_period.DayPeriodFragment
-
+import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.DaySchedulesFragmentImpl
+import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.AppointmentFragmentImpl
+import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.DayPeriodFragmentImpl
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
 
 
@@ -31,7 +33,7 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
 
     override fun setFragment(fragment: Fragment) {
         this.fragment = fragment
-        if(this.fragment is DayScheduleFragment){
+        if(this.fragment is DaySchedulesFragmentImpl){
             setDayScheduleFragment(fragment)
         }
     }
@@ -42,17 +44,17 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     }
 
     override fun populateSchedulesList(listDaySchedules: ArrayList<DaySchedule>) {
-        if(fragment is DayScheduleFragment){
-            (this.fragment as DayScheduleFragment).refreshScheduleList(listDaySchedules)
+        if(fragment is DaySchedulesFragmentImpl){
+            (this.fragment as DaySchedulesFragmentImpl).refreshScheduleList(listDaySchedules)
         }
     }
 
     override fun populateDayPeriodList(listDayPeriod: ArrayList<DayPeriod>) {
-        (fragment as DayPeriodFragment).refreshDayPeriodList(listDayPeriod)
+        (fragment as DayPeriodFragmentImpl).refreshDayPeriodList(listDayPeriod)
     }
 
     override fun populateIndentifiedAppointmentList(listIndentifiedAppointment: ArrayList<IndentifiedAppointment>) {
-        (fragment as AppointmentFragment).refreshAppointmentList(listIndentifiedAppointment)
+        (fragment as AppointmentFragmentImpl).refreshAppointmentList(listIndentifiedAppointment)
     }
 
     override fun setProfessionalId(key: String) {
