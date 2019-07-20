@@ -40,6 +40,11 @@ class AppointmentFragment (var listAppointmets : ArrayList<IndentifiedAppointmen
 
     private fun sefImageButtonsParameters(view : View){
         imgBtnBackToDayPeriods = view.imgBtnBackToDayPeriods
+        imgBtnBackToDayPeriods.setOnClickListener{
+            val act = context as ProfessionalDetailMVP.ProfessionalDetailViewImpl
+            act.returnFromAppointmentFragment()
+
+        }
 
         imgBtnBackToSchedulesList = view.imgBtnBackToSchedulesList
         imgBtnBackToSchedulesList.setOnClickListener{

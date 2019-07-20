@@ -24,9 +24,9 @@ class ProfessionalDetailActivity : AppCompatActivity(),
 
 
 
-
     val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl = ProfessionalDetailPresenter()
     lateinit var activityFragment : Fragment
+    lateinit var appointmentFragment : Fragment
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,7 +83,13 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         val newFragment = AppointmentFragment(appointment,presenter)
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.flFragmentContent,newFragment,null).commit()
-        activityFragment = newFragment
+        appointmentFragment = newFragment
+    }
+
+
+    override fun returnFromAppointmentFragment() {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.remove(appointmentFragment).commit()
     }
 
     override fun initializeDayScheduleFragment(){

@@ -16,6 +16,7 @@ class ProfessionalDetailMVP{
         fun initializeDayScheduleFragment()
         fun switchToDayPeriodFragment(dayPeriod: ArrayList<DayPeriod>)
         fun switchToAppointmentFragment(appointment: ArrayList<IndentifiedAppointment>)
+        fun returnFromAppointmentFragment()
         //FragmentsInterfaces
         interface DaySchedulesFragmentImpl{
             fun refreshScheduleList(scheduleList : ArrayList<DaySchedule>)
