@@ -12,7 +12,8 @@ import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import kotlinx.android.synthetic.main.days_schedule_fragment.view.*
 
-class DayScheduleFragment(val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl)
+class DayScheduleFragment(val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl,
+                          val view : ProfessionalDetailMVP.ProfessionalDetailViewImpl)
                         : Fragment(),  ProfessionalDetailMVP.ProfessionalDetailViewImpl.DaySchedulesFragmentImpl{
 
     companion object{
@@ -41,7 +42,7 @@ class DayScheduleFragment(val presenter: ProfessionalDetailMVP.ProfessionalDetai
 
     override fun refreshScheduleList(scheduleList: ArrayList<DaySchedule>) {
         rvSchedules.adapter =
-            ScheduleAdapter(scheduleList, context!!)
+            ScheduleAdapter(scheduleList,presenter,view)
     }
 
 }

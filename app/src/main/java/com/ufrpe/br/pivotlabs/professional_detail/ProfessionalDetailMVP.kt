@@ -57,6 +57,9 @@ class ProfessionalDetailMVP{
         fun populateDayPeriodList(listDayPeriod : ArrayList<DayPeriod>)
         fun populateIndentifiedAppointmentList(listIndentifiedAppointment: ArrayList<IndentifiedAppointment>)
         fun createDoctorObjectWithDataFromPreviousActivity(intent : Intent)
+        fun onDateChosen(date:String)
+        fun onDayPeriodChosen(dayPeriod: String)
+        fun onAppointmentChosen(appointment: IndentifiedAppointment)
     }
 
 

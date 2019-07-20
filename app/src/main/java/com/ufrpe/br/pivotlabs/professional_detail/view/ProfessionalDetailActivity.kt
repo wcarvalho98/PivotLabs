@@ -71,7 +71,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
 
 
     override fun switchToDayPeriodFragment(dayPeriod: ArrayList<DayPeriod>) {
-        val newFragment = DayPeriodFragment(dayPeriod,presenter)
+        val newFragment = DayPeriodFragment(dayPeriod,presenter,this)
         val transaction  = supportFragmentManager.beginTransaction()
         transaction.remove(activityFragment)
         transaction.add(R.id.flFragmentContent,newFragment,null).commit()
@@ -80,7 +80,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     }
 
     override fun switchToAppointmentFragment(appointment: ArrayList<IndentifiedAppointment>) {
-        val newFragment = AppointmentFragment(appointment,presenter)
+        val newFragment = AppointmentFragment(appointment,presenter,this)
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.flFragmentContent,newFragment,null).commit()
         appointmentFragment = newFragment
@@ -93,7 +93,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     }
 
     override fun initializeDayScheduleFragment(){
-        activityFragment = DayScheduleFragment(presenter)
+        activityFragment = DayScheduleFragment(presenter,this)
         supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,activityFragment).commit()
     }
 

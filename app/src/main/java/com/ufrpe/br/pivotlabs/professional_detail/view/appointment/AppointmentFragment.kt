@@ -15,7 +15,8 @@ import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import kotlinx.android.synthetic.main.fragment_appointment.view.*
 
 class AppointmentFragment (var listAppointmets : ArrayList<IndentifiedAppointment>,
-                           val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl):
+                           val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl,
+                           val view : ProfessionalDetailMVP.ProfessionalDetailViewImpl):
         Fragment(), ProfessionalDetailMVP.ProfessionalDetailViewImpl.AppointmentFragmentImpl{
 
     lateinit var imgBtnBackToDayPeriods : ImageButton
@@ -35,14 +36,14 @@ class AppointmentFragment (var listAppointmets : ArrayList<IndentifiedAppointmen
     }
 
     override fun refreshAppointmentList(scheduleList: ArrayList<IndentifiedAppointment>) {
-        rvAppointments.adapter = AppointmentListAdapter(scheduleList)
+        rvAppointments.adapter = AppointmentListAdapter(scheduleList,presenter)
     }
 
     private fun sefImageButtonsParameters(view : View){
         imgBtnBackToDayPeriods = view.imgBtnBackToDayPeriods
         imgBtnBackToDayPeriods.setOnClickListener{
-            val act = context as ProfessionalDetailMVP.ProfessionalDetailViewImpl
-            act.returnFromAppointmentFragment()
+            //val act = context as ProfessionalDetailMVP.ProfessionalDetailViewImpl
+            this.view.returnFromAppointmentFragment()
 
         }
 
