@@ -15,7 +15,7 @@ class ProfessionalDetailMVP{
         fun returnToMainActivity()
         fun initializeDayScheduleFragment()
         fun switchToDayPeriodFragment(dayPeriod: ArrayList<DayPeriod>)
-        fun switchToAppointmentFragment(appointment: IndentifiedAppointment)
+        fun switchToAppointmentFragment(appointment: ArrayList<IndentifiedAppointment>)
         //FragmentsInterfaces
         interface DaySchedulesFragmentImpl{
             fun refreshScheduleList(scheduleList : ArrayList<DaySchedule>)
@@ -39,6 +39,7 @@ class ProfessionalDetailMVP{
         fun setFragment(fragment: Fragment)
         fun populateSchedulesList(listDaySchedules : ArrayList<DaySchedule>)
         fun populateDayPeriodList(listDayPeriod : ArrayList<DayPeriod>)
+        fun populateIndentifiedAppointmentList(listIndentifiedAppointment: ArrayList<IndentifiedAppointment>)
         fun createDoctorObjectWithDataFromPreviousActivity(intent : Intent)
     }
 

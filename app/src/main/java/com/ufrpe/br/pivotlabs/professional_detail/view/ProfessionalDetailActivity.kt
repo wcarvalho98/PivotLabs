@@ -11,6 +11,7 @@ import com.ufrpe.br.pivotlabs.beans.IndentifiedAppointment
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import com.ufrpe.br.pivotlabs.professional_detail.presenter.ProfessionalDetailPresenter
+import com.ufrpe.br.pivotlabs.professional_detail.view.appointment.AppointmentFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_period.DayPeriodFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleFragment
 import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
@@ -78,8 +79,11 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         activityFragment = newFragment
     }
 
-    override fun switchToAppointmentFragment(appointment: IndentifiedAppointment) {
-        TODO("Not implemented")
+    override fun switchToAppointmentFragment(appointment: ArrayList<IndentifiedAppointment>) {
+        val newFragment = AppointmentFragment(appointment,presenter)
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.flFragmentContent,newFragment,null).commit()
+        activityFragment = newFragment
     }
 
     override fun initializeDayScheduleFragment(){

@@ -8,7 +8,8 @@ import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.beans.IndentifiedAppointment
 import kotlinx.android.synthetic.main.appointment_item.view.*
 
-class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>) : RecyclerView.Adapter<AppointmentListAdapter.ViewHolder>() {
+class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>) :
+                                RecyclerView.Adapter<AppointmentListAdapter.ViewHolder>() {
 
 
 

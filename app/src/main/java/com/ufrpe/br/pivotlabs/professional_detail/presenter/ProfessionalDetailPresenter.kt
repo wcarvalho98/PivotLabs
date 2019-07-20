@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import com.ufrpe.br.pivotlabs.beans.DayPeriod
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.beans.Doctor
+import com.ufrpe.br.pivotlabs.beans.IndentifiedAppointment
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import com.ufrpe.br.pivotlabs.professional_detail.model.ProfessionalDetailModel
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
+import com.ufrpe.br.pivotlabs.professional_detail.view.appointment.AppointmentFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_period.DayPeriodFragment
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
@@ -32,9 +34,6 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         if(this.fragment is DayScheduleFragment){
             setDayScheduleFragment(fragment)
         }
-        if(this.fragment is DayPeriodFragment){
-
-        }
     }
 
     private fun setDayScheduleFragment(fragment: Fragment) {
@@ -50,6 +49,10 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
 
     override fun populateDayPeriodList(listDayPeriod: ArrayList<DayPeriod>) {
         (fragment as DayPeriodFragment).refreshDayPeriodList(listDayPeriod)
+    }
+
+    override fun populateIndentifiedAppointmentList(listIndentifiedAppointment: ArrayList<IndentifiedAppointment>) {
+        (fragment as AppointmentFragment).refreshAppointmentList(listIndentifiedAppointment)
     }
 
     override fun setProfessionalId(key: String) {
