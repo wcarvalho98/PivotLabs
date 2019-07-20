@@ -20,6 +20,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
                                    ProfessionalDetailMVP.ProfessionalDetailViewImpl,DayScheduleFragment.OnItemSelectedListener {
 
 
+    lateinit var dayScheduleFragment : DayScheduleFragment
     val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl = ProfessionalDetailPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +31,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         imgBtnBackToProfessionalSelect.setOnClickListener { returnToProfessionalSelectActivity() }
         imgBtnBackToMain.setOnClickListener { returnToMainActivity() }
         fillTextViewsWithDoctorData()
+        initializeDayScheduleFragment()
 
     }
 
@@ -54,13 +56,15 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         this.finish()
     }
 
-    override fun refreshScheduleList(scheduleList: ArrayList<DaySchedule>) {
-        //rvSchedules.adapter = ScheduleAdapter(scheduleList,this)
-    }
-
     //This is called when a schedule has been selected from the schedules  list
     override fun onItemSelected(ds: DaySchedule) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+
+    private fun initializeDayScheduleFragment(){
+        dayScheduleFragment = DayScheduleFragment(presenter)
+        supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,dayScheduleFragment).commit()
     }
 
 }

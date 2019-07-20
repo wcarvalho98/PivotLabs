@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.ufrpe.br.pivotlabs.beans.Appointment
+import com.ufrpe.br.pivotlabs.beans.DayPeriod
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
@@ -14,7 +16,21 @@ class ProfessionalDetailMVP{
         fun fillTextViewsWithDoctorData()
         fun returnToProfessionalSelectActivity()
         fun returnToMainActivity()
-        fun refreshScheduleList(scheduleList : ArrayList<DaySchedule>)
+
+
+        //FragmentsInterfaces
+        interface DaySchedulesFragmentImpl{
+            fun refreshScheduleList(scheduleList : ArrayList<DaySchedule>)
+        }
+
+        interface DayPeriodFragmentImpl{
+            fun refreshDayPeriodList(scheduleList : ArrayList<DayPeriod>)
+        }
+
+        interface AppointmentFragmentImpl{
+            fun refreshAppointmentList(scheduleList : ArrayList<Appointment>)
+        }
+
     }
 
     interface ProfessionalDetailPresenterImpl{
@@ -22,7 +38,7 @@ class ProfessionalDetailMVP{
         fun getDoctorObject(): Doctor
         fun setProfessionalId(key:String)
         fun setView(activity: ProfessionalDetailActivity)
-        fun setFragment(fragment: Fragment)
+        fun setDayScheduleFragment(fragment: Fragment)
         fun populateSchedulesList(listDaySchedules : ArrayList<DaySchedule>)
         fun createDoctorObjectWithDataFromPreviousActivity(intent : Intent)
     }

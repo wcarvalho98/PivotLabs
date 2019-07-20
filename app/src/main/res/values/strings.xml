@@ -64,8 +64,14 @@
 
     <!--Professional Detail Activity-->
     <string name="schedules">Schedules:</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+        <!-- Fragment DayPeriod -->
+        <string name="text_available_dayperiods">Available Dayperiods</string>
+        <!-- Fragment Appointment -->
+        <string name="text_appointment">Appointments</string>
+            <!--Appointment Items-->
+            <string name="text_start">Start:</string>
+            <string name="text_finish">Finish:</string>
+            <string name="text_choose">Choose</string>
+            <string name="text_taken">Taken</string>
 
 </resources>

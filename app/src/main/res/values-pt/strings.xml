@@ -62,5 +62,13 @@
 
     <!--Professional Detail Activity-->
     <string name="schedules">Horários:</string>
-
+        <!-- Fragment DayPeriod -->
+        <string name="text_available_dayperiods">Available Dayperiods</string>
+        <!-- Fragment Appointment -->
+        <string name="text_appointment">Consultas</string>
+                <!--Appointment Items-->
+                <string name="text_start">Inicio:</string>
+                <string name="text_finish">Fim:</string>
+                <string name="text_choose">Escolher</string>
+                <string name="text_taken">Ocupado</string>
 </resources>

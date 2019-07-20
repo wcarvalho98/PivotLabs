@@ -25,12 +25,15 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
 
     }
 
-    override fun setFragment(fragment: Fragment) {
+    override fun setDayScheduleFragment(fragment: Fragment) {
         this.fragment = fragment
+        populateSchedulesList(model.fetchAllSchedules())
     }
 
     override fun populateSchedulesList(listDaySchedules: ArrayList<DaySchedule>) {
-        view.refreshScheduleList(listDaySchedules)
+        if(fragment is DayScheduleFragment){
+            (this.fragment as DayScheduleFragment).refreshScheduleList(listDaySchedules)
+        }
     }
 
     override fun setProfessionalId(key: String) {
@@ -44,8 +47,8 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     override fun createDoctorObjectWithDataFromPreviousActivity(intent:Intent) {
         val b = intent.extras
         if(b != null){
-            professional_id =  b.getString("professional_id")
-            doctor.name = b.getString("professional_name")
+            professional_id =  b.getString("professional_id")!!
+            doctor.name = b.getString("professional_name")!!
             doctor.speciality = b.getString("professional_speciality")
         }
     }
