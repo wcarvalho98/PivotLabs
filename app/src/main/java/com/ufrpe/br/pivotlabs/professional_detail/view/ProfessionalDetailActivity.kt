@@ -32,9 +32,9 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_professional_detail)
-        presenter.createDoctorObjectWithDataFromPreviousActivity(getIntent())
+        presenter.createDoctorObjectWithDataFromPreviousActivity(intent)
         presenter.setView(this)
-        imgBtnBackToProfessionalSelect.setOnClickListener { returnToProfessionalSelectActivity() }
+        imgBtnBackToProfessionalSelect.setOnClickListener { onBackPressed() }
         imgBtnBackToMain.setOnClickListener { returnToMainActivity() }
         fillTextViewsWithDoctorData()
         initializeDayScheduleFragment()
@@ -42,18 +42,11 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     }
 
     override fun fillTextViewsWithDoctorData() {
-        var doctor = presenter.getDoctorObject()
+        val doctor = presenter.getDoctorObject()
         if(doctor.name != "" )
             tvProfessionalName.text = doctor.name
         if(doctor.speciality != null)
             tvSpeciality.text = doctor.speciality
-    }
-
-
-    override fun returnToProfessionalSelectActivity() {
-        var intent = Intent(this,ProfessionalSelectActivity::class.java)
-        startActivity(intent)
-        this.finish()
     }
 
     override fun returnToMainActivity() {

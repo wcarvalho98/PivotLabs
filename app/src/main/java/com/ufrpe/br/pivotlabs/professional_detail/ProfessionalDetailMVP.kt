@@ -11,7 +11,6 @@ class ProfessionalDetailMVP{
 
     interface ProfessionalDetailViewImpl{
         fun fillTextViewsWithDoctorData()
-        fun returnToProfessionalSelectActivity()
         fun returnToMainActivity()
         fun initializeDayScheduleFragment()
         fun switchToDayPeriodFragment(dayPeriod: ArrayList<DayPeriod>)
