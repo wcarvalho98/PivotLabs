@@ -1,13 +1,12 @@
 package com.ufrpe.br.pivotlabs.professional_detail.presenter
 
-import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.Fragment
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import com.ufrpe.br.pivotlabs.professional_detail.model.ProfessionalDetailModel
-import com.ufrpe.br.pivotlabs.professional_detail.view.DayScheduleFragment
+import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{

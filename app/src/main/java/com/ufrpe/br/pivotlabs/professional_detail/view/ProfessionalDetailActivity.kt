@@ -2,22 +2,20 @@ package com.ufrpe.br.pivotlabs.professional_detail.view
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
-import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.main.view.MainActivity
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import com.ufrpe.br.pivotlabs.professional_detail.presenter.ProfessionalDetailPresenter
+import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleFragment
 import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
 
 import kotlinx.android.synthetic.main.activity_professional_detail.*
 
 class ProfessionalDetailActivity : AppCompatActivity(),
-                                   ProfessionalDetailMVP.ProfessionalDetailViewImpl,DayScheduleFragment.OnItemSelectedListener {
+                                   ProfessionalDetailMVP.ProfessionalDetailViewImpl,
+    DayScheduleFragment.OnItemSelectedListener {
 
 
     lateinit var dayScheduleFragment : DayScheduleFragment
@@ -63,7 +61,8 @@ class ProfessionalDetailActivity : AppCompatActivity(),
 
 
     private fun initializeDayScheduleFragment(){
-        dayScheduleFragment = DayScheduleFragment(presenter)
+        dayScheduleFragment =
+            DayScheduleFragment(presenter)
         supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,dayScheduleFragment).commit()
     }
 

@@ -1,12 +1,10 @@
-package com.ufrpe.br.pivotlabs.professional_detail.view
+package com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.ListFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ufrpe.br.pivotlabs.R
@@ -42,7 +40,8 @@ class DayScheduleFragment(val presenter: ProfessionalDetailMVP.ProfessionalDetai
 
 
     override fun refreshScheduleList(scheduleList: ArrayList<DaySchedule>) {
-        rvSchedules.adapter = ScheduleAdapter(scheduleList,context!!)
+        rvSchedules.adapter =
+            ScheduleAdapter(scheduleList, context!!)
     }
 
 }
