@@ -18,6 +18,9 @@ class DayPeriodListAdapter(var items: ArrayList<DayPeriod>,
                            val view: ProfessionalDetailMVP.ProfessionalDetailViewImpl) :
                                 RecyclerView.Adapter<DayPeriodListAdapter.ViewHolder>(){
 
+    /**
+     * Adapter that helps controlling the day period selection
+     */
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.day_period_item,parent,false)
@@ -31,7 +34,10 @@ class DayPeriodListAdapter(var items: ArrayList<DayPeriod>,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvDayPeriod.text = items[position].period_id
         holder.item.setOnClickListener{
+            //Setting dayperiod of the PatientAppointment to be saved in the backend
             presenter.onDayPeriodChosen(items[position].period_id)
+            //Here an also in the other switch methord the instance ViewImpl acts as a listener
+            // for sending data to other fragments
             view.switchToAppointmentFragment(items[position].listAppointment)
         }
     }

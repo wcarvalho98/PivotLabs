@@ -8,6 +8,10 @@ import com.ufrpe.br.pivotlabs.beans.*
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 
 interface ProfessionalDetailMVP{
+    /**
+     * Defining interfacese for both MVP modules and also the fragments
+     * each fragment is in its own directory together with its adapter
+     */
 
     interface ProfessionalDetailViewImpl{
         fun fillTextViewsWithDoctorData()
@@ -64,6 +68,7 @@ interface ProfessionalDetailMVP{
 
     interface ProfessionalDetailModelImpl{
         fun fetchAllSchedules():ArrayList<DaySchedule>
+        fun storeAppointmentInRemote(patientAppointment: PatientAppointment)
     }
 
 

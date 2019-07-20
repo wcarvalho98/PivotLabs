@@ -15,9 +15,12 @@ import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.Professi
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
 
+    /**Implementation of the interface ProfessioanlDetailPresenterImpl
+     */
 
     lateinit var professional_id :String
     var doctor  = Doctor()
+    //Object to keep track of the appointment chosen
     var patientAppointment = PatientAppointment()
     private var daySchedules: ArrayList<DaySchedule> = ArrayList<DaySchedule>()
     private lateinit var view : ProfessionalDetailMVP.ProfessionalDetailViewImpl
@@ -31,6 +34,8 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
 
     override fun setFragment(fragment: Fragment) {
         this.fragment = fragment
+        //Verifies is the fragment set is an instance of DaySchedulesFragmentImpl
+        // if true fetches the day schedules from remote
         if(this.fragment is DaySchedulesFragmentImpl){
             setDayScheduleFragment(fragment)
         }
@@ -41,20 +46,25 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         populateSchedulesList(model.fetchAllSchedules())
     }
 
+    //Populating listing of day schedule fragment
     override fun populateSchedulesList(listDaySchedules: ArrayList<DaySchedule>) {
         if(fragment is DaySchedulesFragmentImpl){
             (this.fragment as DaySchedulesFragmentImpl).refreshScheduleList(listDaySchedules)
         }
     }
 
+    //Populating the listing of DayPeriodFragment
     override fun populateDayPeriodList(listDayPeriod: ArrayList<DayPeriod>) {
         (fragment as DayPeriodFragmentImpl).refreshDayPeriodList(listDayPeriod)
     }
 
+    //Populating the listing the AppointmentFragmen
     override fun populateIndentifiedAppointmentList(listIndentifiedAppointment: ArrayList<IndentifiedAppointment>) {
         (fragment as AppointmentFragmentImpl).refreshAppointmentList(listIndentifiedAppointment)
     }
 
+
+    //Building auxiliary objects to be used in the storing
     override fun setProfessionalId(key: String) {
         professional_id = key
     }
@@ -77,6 +87,7 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         return doctor
     }
 
+    //Methods destined to be called when all the different elements of the appointment are being chosen
     override fun onDateChosen(date: String) {
         this.patientAppointment.date = date
     }
@@ -85,6 +96,8 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         this.patientAppointment.dayPeriod = dayPeriod
     }
 
+    //Here, The appointment object of the appointment chosen has already been built
+    //therefore it can be stored in remote
     override fun onAppointmentChosen(appointment: IndentifiedAppointment) {
         this.patientAppointment.apointmentId  = appointment.id
     }

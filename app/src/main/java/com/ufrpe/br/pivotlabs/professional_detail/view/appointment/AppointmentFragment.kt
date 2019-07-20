@@ -18,7 +18,10 @@ class AppointmentFragment (var listAppointmets : ArrayList<IndentifiedAppointmen
                            val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl,
                            val view : ProfessionalDetailMVP.ProfessionalDetailViewImpl):
         Fragment(), ProfessionalDetailMVP.ProfessionalDetailViewImpl.AppointmentFragmentImpl{
-
+    /**
+     * This Fragment controls the displaying and selection of the IndentifiedAppointments list
+     */
+    //Variables destined to hold the references of the view
     lateinit var imgBtnBackToDayPeriods : ImageButton
     lateinit var imgBtnBackToSchedulesList : ImageButton
     lateinit var rvAppointments : RecyclerView
@@ -26,7 +29,7 @@ class AppointmentFragment (var listAppointmets : ArrayList<IndentifiedAppointmen
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.fragment_appointment,container,false)
 
-
+        //Auxiliary procedures for storing and configuring view elements
         setRecicleViewParameters(view)
         sefImageButtonsParameters(view)
 

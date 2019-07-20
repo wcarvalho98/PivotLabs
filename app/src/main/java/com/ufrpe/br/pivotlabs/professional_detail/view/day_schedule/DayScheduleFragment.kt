@@ -16,11 +16,17 @@ class DayScheduleFragment(val presenter: ProfessionalDetailMVP.ProfessionalDetai
                           val view : ProfessionalDetailMVP.ProfessionalDetailViewImpl)
                         : Fragment(),  ProfessionalDetailMVP.ProfessionalDetailViewImpl.DaySchedulesFragmentImpl{
 
+    /**
+     * Fragment that lists the dates to be chosen by the user
+     */
     companion object{
         var dayScheduleFragment : DayScheduleFragment? = null
     }
 
     internal lateinit var listener : OnItemSelectedListener
+
+    //Defining variable to hold the refernce of the recicle view that will list the
+    //dates to be chosen
     private lateinit var rvSchedules : RecyclerView
 
     interface OnItemSelectedListener{
@@ -39,7 +45,8 @@ class DayScheduleFragment(val presenter: ProfessionalDetailMVP.ProfessionalDetai
         return view
     }
 
-
+    //When the shedules data is fetched by the model, then the presenter calls this
+    //procedure populating the list of the fragment
     override fun refreshScheduleList(scheduleList: ArrayList<DaySchedule>) {
         rvSchedules.adapter =
             ScheduleAdapter(scheduleList,presenter,view)

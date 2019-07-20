@@ -7,14 +7,12 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.ufrpe.br.pivotlabs.beans.Appointment
-import com.ufrpe.br.pivotlabs.beans.DayPeriod
-import com.ufrpe.br.pivotlabs.beans.DaySchedule
-import com.ufrpe.br.pivotlabs.beans.IndentifiedAppointment
+import com.ufrpe.br.pivotlabs.beans.*
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import kotlin.collections.ArrayList
 
 class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) : ProfessionalDetailMVP.ProfessionalDetailModelImpl{
+
 
     private var user =  FirebaseAuth.getInstance()
     private var patientAppointmentRef = FirebaseDatabase.getInstance().getReference("patient_appointment")
@@ -23,10 +21,21 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
     override fun fetchAllSchedules(): ArrayList<DaySchedule> = RequestSchedulesFromRemote(presenter).execute().get()
 
 
+    override fun storeAppointmentInRemote(patientAppointment: PatientAppointment) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     class RequestSchedulesFromRemote(var presenter:ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) : AsyncTask<Void,Void,ArrayList<DaySchedule>>(){
 
+        //Getting the reference from the remote with the element of the professional with a
+        //specific ID
         private val databaseReference = FirebaseDatabase.getInstance().getReference("doctor_schedules/"+presenter.getProfessionalId())
 
+        /**
+         * This method builds an ArrayList of DayShedule objects and returns them.
+         * it buids the ArrayListObjects by iterating through the children
+         * of the scheduel elements of a professional with a specific ID
+         */
         override fun doInBackground(vararg params: Void?): ArrayList<DaySchedule> {
             var listDaySchedule = ArrayList<DaySchedule>(5)
             databaseReference.addValueEventListener(object: ValueEventListener{

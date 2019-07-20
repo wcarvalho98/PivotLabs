@@ -18,7 +18,14 @@ class DayPeriodFragment(var dayPeriodList: ArrayList<DayPeriod>,
                         val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl,
                         val view : ProfessionalDetailMVP.ProfessionalDetailViewImpl):
                             Fragment(),ProfessionalDetailMVP.ProfessionalDetailViewImpl.DayPeriodFragmentImpl{
-
+    /**
+     * This fragments constrols the selection of the day period of the
+     * appointment. It displays only the Day period (Morning ,Afternoon)
+     * But it controls the selection of the elements of a list of DayPeriods objects
+     * each dayPeriod objects in the list has a  list of IndentifiedAppointment
+     * which is an appointment with its id previously fetched from remote
+     * when  the ProfessionalDetailActivity was created
+     */
     companion object{
         var dayPeriodFragment : DayPeriodFragment? = null
     }

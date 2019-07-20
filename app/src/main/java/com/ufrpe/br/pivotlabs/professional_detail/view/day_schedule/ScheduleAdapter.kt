@@ -16,7 +16,12 @@ class ScheduleAdapter(val items: ArrayList<DaySchedule>,
                       val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl,
                       val view : ProfessionalDetailMVP.ProfessionalDetailViewImpl):
                                                                 RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
-
+    /**
+     * Definind adapter that displays the date, but
+     * the items selected are an arrayList of DaySchedule objects.
+     * the DaySchedule Object selected has a list of objects called DayPeriod
+     * The DayPeriods of the DaySchedule selected are then
+     */
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.schedule_item,parent,false)
@@ -30,7 +35,10 @@ class ScheduleAdapter(val items: ArrayList<DaySchedule>,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvDate.text = items[position].daySchedule_id
         holder.item.setOnClickListener{
+            //Setting date of the PatientAppointment to be saved in the backend
             presenter.onDateChosen(items[position].daySchedule_id)
+            //Here an also in the other switch methord the instance ViewImpl acts as a listener
+            // for sending data to other fragments
             view.switchToDayPeriodFragment(items[position].listPeriods)
         }
     }

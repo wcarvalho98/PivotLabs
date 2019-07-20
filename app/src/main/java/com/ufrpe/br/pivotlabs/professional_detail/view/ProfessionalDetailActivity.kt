@@ -21,23 +21,32 @@ import kotlinx.android.synthetic.main.activity_professional_detail.*
 class ProfessionalDetailActivity : AppCompatActivity(),
                                    ProfessionalDetailMVP.ProfessionalDetailViewImpl,
     DayScheduleFragment.OnItemSelectedListener {
-
-
+    /**
+     * Activity destine to detailing the data of the professional as well as to
+     * manage the interationc among fagments
+     *
+     */
 
     val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl = ProfessionalDetailPresenter()
-    lateinit var activityFragment : Fragment
-    lateinit var appointmentFragment : Fragment
+    //Creating variables where the instances of the fragments will be kept
+    lateinit var activityFragment : Fragment //Temporary fagment intance holder, the view will be switching it
+    //Between DaySchedule Fragment and DayPeriod Fragment
+    lateinit var appointmentFragment : Fragment // Variable destined to hold solely the appointment fragmen for
+    //when the user chooses to go back do day period, only the appoitnment fragment shall be destroyed
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_professional_detail)
+
+        //Getting data passed from previos activity by put extra
         presenter.createDoctorObjectWithDataFromPreviousActivity(intent)
         presenter.setView(this)
         imgBtnBackToProfessionalSelect.setOnClickListener { onBackPressed() }
         imgBtnBackToMain.setOnClickListener { returnToMainActivity() }
-        fillTextViewsWithDoctorData()
-        initializeDayScheduleFragment()
+
+        fillTextViewsWithDoctorData()//Auxiliary methods for displaying doctor data
+        initializeDayScheduleFragment()//Initializing the daySchedule fragment
 
     }
 
@@ -80,11 +89,18 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     }
 
 
+    /**
+     * When the user presses return to day period this procedure is called
+     * and only the appoitnment fragment created in removed
+     * */
     override fun returnFromAppointmentFragment() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.remove(appointmentFragment).commit()
     }
 
+    /**
+     * Initializing the first fragment
+     * */
     override fun initializeDayScheduleFragment(){
         activityFragment = DayScheduleFragment(presenter,this)
         supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,activityFragment).commit()
