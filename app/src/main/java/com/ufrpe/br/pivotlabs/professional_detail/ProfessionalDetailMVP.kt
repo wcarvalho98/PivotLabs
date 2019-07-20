@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import com.ufrpe.br.pivotlabs.beans.*
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 
-class ProfessionalDetailMVP{
+interface ProfessionalDetailMVP{
 
     interface ProfessionalDetailViewImpl{
         fun fillTextViewsWithDoctorData()
@@ -15,7 +15,6 @@ class ProfessionalDetailMVP{
         /**
          * Basic intent changes
          */
-        fun returnToProfessionalSelectActivity()
         fun returnToMainActivity()
 
         /**
