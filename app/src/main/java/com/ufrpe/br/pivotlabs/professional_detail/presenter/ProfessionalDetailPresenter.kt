@@ -2,10 +2,12 @@ package com.ufrpe.br.pivotlabs.professional_detail.presenter
 
 import android.app.Activity
 import android.content.Intent
+import androidx.fragment.app.Fragment
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import com.ufrpe.br.pivotlabs.professional_detail.model.ProfessionalDetailModel
+import com.ufrpe.br.pivotlabs.professional_detail.view.DayScheduleFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
@@ -14,12 +16,17 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     var doctor  = Doctor()
     private var daySchedules: ArrayList<DaySchedule> = ArrayList<DaySchedule>()
     private lateinit var view : ProfessionalDetailMVP.ProfessionalDetailViewImpl
+    private lateinit var fragment: Fragment
     private var model : ProfessionalDetailMVP.ProfessionalDetailModelImpl = ProfessionalDetailModel(this)
 
     override fun setView(activity: ProfessionalDetailActivity) {
         view = activity
-        daySchedules = model.fetchAllSchedules()
+        //daySchedules = model.fetchAllSchedules()
 
+    }
+
+    override fun setFragment(fragment: Fragment) {
+        this.fragment = fragment
     }
 
     override fun populateSchedulesList(listDaySchedules: ArrayList<DaySchedule>) {

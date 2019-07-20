@@ -16,14 +16,15 @@ import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivit
 
 import kotlinx.android.synthetic.main.activity_professional_detail.*
 
-class ProfessionalDetailActivity : AppCompatActivity(), ProfessionalDetailMVP.ProfessionalDetailViewImpl {
+class ProfessionalDetailActivity : AppCompatActivity(),
+                                   ProfessionalDetailMVP.ProfessionalDetailViewImpl,DayScheduleFragment.OnItemSelectedListener {
+
 
     val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl = ProfessionalDetailPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_professional_detail)
-        rvSchedules.layoutManager = LinearLayoutManager(this)
         presenter.createDoctorObjectWithDataFromPreviousActivity(getIntent())
         presenter.setView(this)
         imgBtnBackToProfessionalSelect.setOnClickListener { returnToProfessionalSelectActivity() }
@@ -54,7 +55,12 @@ class ProfessionalDetailActivity : AppCompatActivity(), ProfessionalDetailMVP.Pr
     }
 
     override fun refreshScheduleList(scheduleList: ArrayList<DaySchedule>) {
-        rvSchedules.adapter = ScheduleAdapter(scheduleList,this)
+        //rvSchedules.adapter = ScheduleAdapter(scheduleList,this)
+    }
+
+    //This is called when a schedule has been selected from the schedules  list
+    override fun onItemSelected(ds: DaySchedule) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }

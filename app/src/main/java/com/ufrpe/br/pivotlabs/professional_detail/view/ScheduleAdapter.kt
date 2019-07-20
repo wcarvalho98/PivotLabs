@@ -9,7 +9,6 @@ import android.widget.PopupWindow
 import androidx.recyclerview.widget.RecyclerView
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
-import kotlinx.android.synthetic.main.popup_window.view.*
 import kotlinx.android.synthetic.main.schedule_item.view.*
 
 class ScheduleAdapter(val items: ArrayList<DaySchedule>,val context:Context):
@@ -27,15 +26,6 @@ class ScheduleAdapter(val items: ArrayList<DaySchedule>,val context:Context):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvDate.text = items[position].daySchedule_id
-        holder.item.setOnClickListener{
-            var pop_win = PopupWindow(context)
-            var view = LayoutInflater.from(context).inflate(R.layout.popup_window,null)
-            pop_win.contentView = view
-            view.imgBtnClosePopUp.setOnClickListener{
-                pop_win.dismiss()
-            }
-            pop_win.showAsDropDown(holder.item)
-        }
     }
 
 
