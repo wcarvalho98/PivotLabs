@@ -73,7 +73,8 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         val newFragment = DayPeriodFragment(dayPeriod,presenter)
         val transaction  = supportFragmentManager.beginTransaction()
         transaction.remove(activityFragment)
-        transaction.replace(R.id.flFragmentContent,newFragment).commit()
+        transaction.add(R.id.flFragmentContent,newFragment,null).commit()
+        //transaction.replace(R.id.flFragmentContent,newFragment).commit()
         activityFragment = newFragment
     }
 
