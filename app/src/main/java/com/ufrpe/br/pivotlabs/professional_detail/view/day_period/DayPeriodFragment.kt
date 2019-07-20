@@ -15,7 +15,8 @@ import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import kotlinx.android.synthetic.main.fragment_day_period.view.*
 
 class DayPeriodFragment(var dayPeriodList: ArrayList<DayPeriod>,
-                        val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl):
+                        val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl,
+                        val view : ProfessionalDetailMVP.ProfessionalDetailViewImpl):
                             Fragment(),ProfessionalDetailMVP.ProfessionalDetailViewImpl.DayPeriodFragmentImpl{
 
     companion object{
@@ -39,7 +40,7 @@ class DayPeriodFragment(var dayPeriodList: ArrayList<DayPeriod>,
 
 
     override fun refreshDayPeriodList(scheduleList: ArrayList<DayPeriod>) {
-        rvDayPeriods.adapter = DayPeriodListAdapter(dayPeriodList,context!!)
+        rvDayPeriods.adapter = DayPeriodListAdapter(dayPeriodList,presenter,view)
     }
 
 

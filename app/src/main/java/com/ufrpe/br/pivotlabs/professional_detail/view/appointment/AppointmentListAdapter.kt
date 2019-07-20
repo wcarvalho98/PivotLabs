@@ -1,14 +1,18 @@
 package com.ufrpe.br.pivotlabs.professional_detail.view.appointment
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.beans.IndentifiedAppointment
+import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
+import com.ufrpe.br.pivotlabs.professional_detail.presenter.ProfessionalDetailPresenter
+import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 import kotlinx.android.synthetic.main.appointment_item.view.*
 
-class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>) :
+class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>,val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) :
                                 RecyclerView.Adapter<AppointmentListAdapter.ViewHolder>() {
 
 
@@ -25,6 +29,9 @@ class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvStart.text  = items[position].appointment.start
         holder.tvFinish.text  = items[position].appointment.finish
+        holder.btnChooseAppointment.setOnClickListener{
+            presenter.onAppointmentChosen(items[position])
+        }
     }
 
 

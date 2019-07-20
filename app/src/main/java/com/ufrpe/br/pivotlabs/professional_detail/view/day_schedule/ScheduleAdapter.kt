@@ -8,9 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
+import com.ufrpe.br.pivotlabs.professional_detail.presenter.ProfessionalDetailPresenter
+import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 import kotlinx.android.synthetic.main.schedule_item.view.*
 
-class ScheduleAdapter(val items: ArrayList<DaySchedule>,val context:Context):
+class ScheduleAdapter(val items: ArrayList<DaySchedule>,
+                      val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl,
+                      val view : ProfessionalDetailMVP.ProfessionalDetailViewImpl):
                                                                 RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
 
 
@@ -26,8 +30,8 @@ class ScheduleAdapter(val items: ArrayList<DaySchedule>,val context:Context):
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvDate.text = items[position].daySchedule_id
         holder.item.setOnClickListener{
-            val act = context as ProfessionalDetailMVP.ProfessionalDetailViewImpl
-            act.switchToDayPeriodFragment(items[position].listPeriods)
+            presenter.onDateChosen(items[position].daySchedule_id)
+            view.switchToDayPeriodFragment(items[position].listPeriods)
         }
     }
 

@@ -2,6 +2,7 @@ package com.ufrpe.br.pivotlabs.professional_detail.model
 
 import android.os.AsyncTask
 import android.widget.ArrayAdapter
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -14,6 +15,10 @@ import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import kotlin.collections.ArrayList
 
 class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) : ProfessionalDetailMVP.ProfessionalDetailModelImpl{
+
+    private var user =  FirebaseAuth.getInstance()
+    private var patientAppointmentRef = FirebaseDatabase.getInstance().getReference("patient_appointment")
+
 
     override fun fetchAllSchedules(): ArrayList<DaySchedule> = RequestSchedulesFromRemote(presenter).execute().get()
 

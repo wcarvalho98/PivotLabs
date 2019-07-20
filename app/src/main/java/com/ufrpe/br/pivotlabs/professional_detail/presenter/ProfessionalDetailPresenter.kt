@@ -2,19 +2,18 @@ package com.ufrpe.br.pivotlabs.professional_detail.presenter
 
 import android.content.Intent
 import androidx.fragment.app.Fragment
-import com.ufrpe.br.pivotlabs.beans.DayPeriod
-import com.ufrpe.br.pivotlabs.beans.DaySchedule
-import com.ufrpe.br.pivotlabs.beans.Doctor
-import com.ufrpe.br.pivotlabs.beans.IndentifiedAppointment
+import com.ufrpe.br.pivotlabs.beans.*
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import com.ufrpe.br.pivotlabs.professional_detail.model.ProfessionalDetailModel
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 import com.ufrpe.br.pivotlabs.professional_detail.view.appointment.AppointmentFragment
 import com.ufrpe.br.pivotlabs.professional_detail.view.day_period.DayPeriodFragment
+import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.DaySchedulesFragmentImpl
+import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.AppointmentFragmentImpl
+import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.DayPeriodFragmentImpl
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
-
 
 
     lateinit var professional_id :String
@@ -24,14 +23,18 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     private lateinit var fragment: Fragment
     private var model : ProfessionalDetailMVP.ProfessionalDetailModelImpl = ProfessionalDetailModel(this)
 
+
+    var date = ""
+    var dayPeriod = ""
+    var appointmentId = ""
+
     override fun setView(activity: ProfessionalDetailActivity) {
         view = activity
-        //daySchedules = model.fetchAllSchedules()
     }
 
     override fun setFragment(fragment: Fragment) {
         this.fragment = fragment
-        if(this.fragment is DayScheduleFragment){
+        if(this.fragment is DaySchedulesFragmentImpl){
             setDayScheduleFragment(fragment)
         }
     }
@@ -42,17 +45,17 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     }
 
     override fun populateSchedulesList(listDaySchedules: ArrayList<DaySchedule>) {
-        if(fragment is DayScheduleFragment){
-            (this.fragment as DayScheduleFragment).refreshScheduleList(listDaySchedules)
+        if(fragment is DaySchedulesFragmentImpl){
+            (this.fragment as DaySchedulesFragmentImpl).refreshScheduleList(listDaySchedules)
         }
     }
 
     override fun populateDayPeriodList(listDayPeriod: ArrayList<DayPeriod>) {
-        (fragment as DayPeriodFragment).refreshDayPeriodList(listDayPeriod)
+        (fragment as DayPeriodFragmentImpl).refreshDayPeriodList(listDayPeriod)
     }
 
     override fun populateIndentifiedAppointmentList(listIndentifiedAppointment: ArrayList<IndentifiedAppointment>) {
-        (fragment as AppointmentFragment).refreshAppointmentList(listIndentifiedAppointment)
+        (fragment as AppointmentFragmentImpl).refreshAppointmentList(listIndentifiedAppointment)
     }
 
     override fun setProfessionalId(key: String) {
@@ -74,6 +77,18 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
 
     override fun getDoctorObject(): Doctor {
         return doctor
+    }
+
+    override fun onDateChosen(date: String) {
+        this.date = date
+    }
+
+    override fun onDayPeriodChosen(dayPeriod: String) {
+        this.dayPeriod = dayPeriod
+    }
+
+    override fun onAppointmentChosen(appointment: IndentifiedAppointment) {
+        appointmentId = appointment.id
     }
 
 }

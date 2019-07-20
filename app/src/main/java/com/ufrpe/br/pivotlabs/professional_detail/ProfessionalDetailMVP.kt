@@ -7,15 +7,30 @@ import androidx.fragment.app.Fragment
 import com.ufrpe.br.pivotlabs.beans.*
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
 
-class ProfessionalDetailMVP{
+interface ProfessionalDetailMVP{
 
     interface ProfessionalDetailViewImpl{
         fun fillTextViewsWithDoctorData()
+
+        /**
+         * Basic intent changes
+         */
         fun returnToMainActivity()
+
+        /**
+         * It is a standard convention that fragments can never comunicate with each other
+         * directly, so I have created these procedures to be implemented by the activity class
+         * to control the interaction among the fragments
+         */
         fun initializeDayScheduleFragment()
         fun switchToDayPeriodFragment(dayPeriod: ArrayList<DayPeriod>)
         fun switchToAppointmentFragment(appointment: ArrayList<IndentifiedAppointment>)
         fun returnFromAppointmentFragment()
+
+        /**
+         * ThoseInterfaces define standard procedures to be called by the presenter in order to populate
+         * the lists
+         */
         //FragmentsInterfaces
         interface DaySchedulesFragmentImpl{
             fun refreshScheduleList(scheduleList : ArrayList<DaySchedule>)
@@ -41,6 +56,9 @@ class ProfessionalDetailMVP{
         fun populateDayPeriodList(listDayPeriod : ArrayList<DayPeriod>)
         fun populateIndentifiedAppointmentList(listIndentifiedAppointment: ArrayList<IndentifiedAppointment>)
         fun createDoctorObjectWithDataFromPreviousActivity(intent : Intent)
+        fun onDateChosen(date:String)
+        fun onDayPeriodChosen(dayPeriod: String)
+        fun onAppointmentChosen(appointment: IndentifiedAppointment)
     }
 
 
