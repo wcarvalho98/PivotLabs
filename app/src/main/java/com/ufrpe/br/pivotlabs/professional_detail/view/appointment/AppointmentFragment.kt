@@ -47,6 +47,8 @@ class AppointmentFragment (var listAppointmets : ArrayList<IndentifiedAppointmen
         imgBtnBackToDayPeriods.setOnClickListener{
             //val act = context as ProfessionalDetailMVP.ProfessionalDetailViewImpl
             this.view.returnFromAppointmentFragment()
+            //Reset temporary variables for identified appointments
+            presenter.resetTemporaryVariablesFromIndentifiedAppointment()
 
         }
 
@@ -54,6 +56,8 @@ class AppointmentFragment (var listAppointmets : ArrayList<IndentifiedAppointmen
         imgBtnBackToSchedulesList.setOnClickListener{
             val act = context as ProfessionalDetailMVP.ProfessionalDetailViewImpl
             act.initializeDayScheduleFragment()
+            //Reset temporary variables for identified appointments
+            presenter.resetTemporaryVariablesFromIndentifiedAppointment()
         }
     }
 

@@ -13,8 +13,8 @@ import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivit
 import kotlinx.android.synthetic.main.appointment_item.view.*
 
 class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>,
-                             val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) :
-                                RecyclerView.Adapter<AppointmentListAdapter.ViewHolder>() {
+                                      val presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) :
+                                RecyclerView.Adapter<AppointmentListAdapter.ViewHolder>(){
     /**
      * This adapter constrols the listing of indentified appointments.
      * It displays the start and finish hours, as well as the button to choose
@@ -41,6 +41,7 @@ class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>,
                 //Triggering the action of store the appointment scheduled in the
                 //data base
                 presenter.onAppointmentChosen(items[position])
+                presenter.setTemporaryVariablesFromIndentifiedAppointment(items,position)
             }
         }
         else{
@@ -51,7 +52,6 @@ class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>,
             }
         }
     }
-
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvStart = view.tvStart
