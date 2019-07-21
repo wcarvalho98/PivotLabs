@@ -32,6 +32,9 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     private var model : ProfessionalDetailMVP.ProfessionalDetailModelImpl = ProfessionalDetailModel(this)
 
 
+    private var temIndentifiedAppointmentList = ArrayList<IndentifiedAppointment>(5)
+    private var tempIndentifiedAppointmentIndex = 0
+
     override fun setView(activity: ProfessionalDetailActivity) {
         view = activity
     }
@@ -120,9 +123,6 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
      * */
     override fun saveAppointmentInRemote() {
         model.storeAppointmentInRemote(this.patientAppointment)
-        populateIndentifiedAppointmentList(model.fetchAllAvailableDoctorAppointments(patientAppointment.doctorId,
-                                                                                     patientAppointment.date,
-                                                                                     patientAppointment.dayPeriod))
     }
 
 
@@ -134,6 +134,16 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         this.patientAppointment.apointmentId = ""
     }
 
+    override fun setTemporaryVariablesFromIndentifiedAppointment(iA: ArrayList<IndentifiedAppointment>, index: Int) {
+        this.temIndentifiedAppointmentList = iA
+        this.tempIndentifiedAppointmentIndex = index
+    }
+
+    override fun resetTemporaryVariablesFromIndentifiedAppointment() {
+        this.temIndentifiedAppointmentList = ArrayList<IndentifiedAppointment>(5)
+        this.tempIndentifiedAppointmentIndex = 0
+    }
+
     /**When the storing of the appointment is successful the appointment is marked as taken
     and it is updated in the database*/
     override fun markAppointmentAsTaken() {
@@ -142,6 +152,10 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
                                         patientAppointment.date,
                                         patientAppointment.dayPeriod,
                                         chosenAppointment!!)
+
+        //Update identified appointment list in the fragment
+        this.temIndentifiedAppointmentList[this.tempIndentifiedAppointmentIndex].appointment.taken = true
+        populateIndentifiedAppointmentList(this.temIndentifiedAppointmentList)
     }
 
 

@@ -23,11 +23,11 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
     override fun fetchAllSchedules(): ArrayList<DaySchedule> = RequestSchedulesFromRemote(presenter).execute().get()
 
 
-    override fun fetchAllAvailableDoctorAppointments(
+    /*override fun fetchAllAvailableDoctorAppointments(
         doctorId: String,
         date: String,
         dayPeriod: String
-    ): ArrayList<IndentifiedAppointment> = RequestAvailableAppointmentsFromRemote(doctorId,date,dayPeriod,presenter).execute().get()
+    ): ArrayList<IndentifiedAppointment> = RequestAvailableAppointmentsFromRemote(doctorId,date,dayPeriod,presenter).execute().get()*/
 
 
     /**
@@ -110,7 +110,7 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
         }
     }
 
-    class RequestAvailableAppointmentsFromRemote(
+    /*class RequestAvailableAppointmentsFromRemote(
                                                 val doctorId: String,
                                                 val date: String,
                                                 val dayPeriod: String,
@@ -140,10 +140,9 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
                 }
 
             })
-            presenter.populateIndentifiedAppointmentList(values)
             return values
         }
 
-    }
+    }*/
 
 }
