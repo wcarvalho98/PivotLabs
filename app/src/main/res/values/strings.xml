@@ -73,5 +73,12 @@
             <string name="text_finish">Finish:</string>
             <string name="text_choose">Choose</string>
             <string name="text_taken">Taken</string>
+    <string name="text_cancel">cancel</string>
+    <!--Dialog appointment-->
+    <string name="text_dialog">
+        Remember that in case of no-showing to an appointment a tax will be charged to you.
+        Are you sure you want to proceed?
+    </string>
+    <string name="text_warning">Warning</string>
 
 </resources>

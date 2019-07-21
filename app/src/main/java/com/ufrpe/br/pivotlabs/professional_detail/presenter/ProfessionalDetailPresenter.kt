@@ -99,7 +99,15 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     //Here, The appointment object of the appointment chosen has already been built
     //therefore it can be stored in remote
     override fun onAppointmentChosen(appointment: IndentifiedAppointment) {
+        view.showDialog()
         this.patientAppointment.apointmentId  = appointment.id
     }
 
+    override fun saveAppointmentInRemote() {
+        model.storeAppointmentInRemote(this.patientAppointment)
+    }
+
+    override fun cancelAppointmentSaving() {
+        this.patientAppointment.apointmentId = ""
+    }
 }

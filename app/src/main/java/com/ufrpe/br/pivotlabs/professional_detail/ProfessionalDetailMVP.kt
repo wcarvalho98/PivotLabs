@@ -48,6 +48,9 @@ interface ProfessionalDetailMVP{
             fun refreshAppointmentList(scheduleList : ArrayList<IndentifiedAppointment>)
         }
 
+        //Auxiliary view methods showing dialogs and toasts for wen the appointment is selected
+        fun showDialog()
+
     }
 
     interface ProfessionalDetailPresenterImpl{
@@ -63,6 +66,8 @@ interface ProfessionalDetailMVP{
         fun onDateChosen(date:String)
         fun onDayPeriodChosen(dayPeriod: String)
         fun onAppointmentChosen(appointment: IndentifiedAppointment)
+        fun saveAppointmentInRemote()
+        fun cancelAppointmentSaving()
     }
 
 

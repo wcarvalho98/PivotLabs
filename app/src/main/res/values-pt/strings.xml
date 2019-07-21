@@ -71,4 +71,10 @@
                 <string name="text_finish">Fim:</string>
                 <string name="text_choose">Escolher</string>
                 <string name="text_taken">Ocupado</string>
+                <string name="text_cancel">cancelar</string>
+    <!--Dialog appointment-->
+    <string name="text_dialog">Lembre-se que caso falte a consulta sem avisar você estará sujeito a pagar uma taxa.
+        Você tem certeza que quer prosseguir?
+    </string>
+    <string name="text_warning">Atenção</string>
 </resources>

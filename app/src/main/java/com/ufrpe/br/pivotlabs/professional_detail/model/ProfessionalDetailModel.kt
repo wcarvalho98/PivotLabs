@@ -22,7 +22,15 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
 
 
     override fun storeAppointmentInRemote(patientAppointment: PatientAppointment) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        patientAppointmentRef.child(user.currentUser!!.uid).setValue(patientAppointment)
+            .addOnCompleteListener{
+                if(it.isSuccessful){
+
+                }
+                else{
+
+                }
+            }
     }
 
     class RequestSchedulesFromRemote(var presenter:ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) : AsyncTask<Void,Void,ArrayList<DaySchedule>>(){

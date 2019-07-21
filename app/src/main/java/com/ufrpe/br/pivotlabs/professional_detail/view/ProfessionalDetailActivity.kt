@@ -1,7 +1,10 @@
 package com.ufrpe.br.pivotlabs.professional_detail.view
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment
 import com.ufrpe.br.pivotlabs.R
@@ -17,10 +20,12 @@ import com.ufrpe.br.pivotlabs.professional_detail.view.day_schedule.DayScheduleF
 import com.ufrpe.br.pivotlabs.professional_select.view.ProfessionalSelectActivity
 
 import kotlinx.android.synthetic.main.activity_professional_detail.*
+import kotlinx.android.synthetic.main.dialog_schedule_appointment.view.*
 
 class ProfessionalDetailActivity : AppCompatActivity(),
                                    ProfessionalDetailMVP.ProfessionalDetailViewImpl,
     DayScheduleFragment.OnItemSelectedListener {
+
     /**
      * Activity destine to detailing the data of the professional as well as to
      * manage the interationc among fagments
@@ -106,4 +111,25 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,activityFragment).commit()
     }
 
+    override fun showDialog(){
+
+        val dialog = AlertDialog.Builder(this)
+        var view = layoutInflater.inflate(R.layout.dialog_schedule_appointment,null)
+        dialog.setView(view)
+        dialog.setTitle(R.string.text_warning)
+
+        val btnDialogOk = view.btnDialogOk
+        btnDialogOk.setOnClickListener{
+            //presenter.saveAppointmentInRemote()
+            dialog.setOnDismissListener{ it.dismiss()}
+        }
+
+        val btnDialogCancel = view.btnDialogCancel
+        btnDialogCancel.setOnClickListener{
+            presenter.cancelAppointmentSaving()
+            dialog.setOnDismissListener{ it.dismiss()}
+        }
+
+        dialog.show()
+    }
 }
