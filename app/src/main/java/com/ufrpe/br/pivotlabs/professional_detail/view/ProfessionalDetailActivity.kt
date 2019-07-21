@@ -1,9 +1,12 @@
 package com.ufrpe.br.pivotlabs.professional_detail.view
 
+import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment
@@ -113,23 +116,23 @@ class ProfessionalDetailActivity : AppCompatActivity(),
 
     override fun showDialog(){
 
-        val dialog = AlertDialog.Builder(this)
-        var view = layoutInflater.inflate(R.layout.dialog_schedule_appointment,null)
-        dialog.setView(view)
-        dialog.setTitle(R.string.text_warning)
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog .setCancelable(false)
 
-        val btnDialogOk = view.btnDialogOk
+        //var view = layoutInflater.inflate(R.layout.dialog_schedule_appointment,null)
+        dialog.setContentView(R.layout.dialog_schedule_appointment)
+        val btnDialogOk = dialog.findViewById<Button>(R.id.btnDialogOk)
         btnDialogOk.setOnClickListener{
             //presenter.saveAppointmentInRemote()
-            dialog.setOnDismissListener{ it.dismiss()}
+            dialog.dismiss()
         }
 
-        val btnDialogCancel = view.btnDialogCancel
+        val btnDialogCancel = dialog.findViewById<Button>(R.id.btnDialogCancel)
         btnDialogCancel.setOnClickListener{
             presenter.cancelAppointmentSaving()
-            dialog.setOnDismissListener{ it.dismiss()}
+            dialog.dismiss()
         }
-
         dialog.show()
     }
 }
