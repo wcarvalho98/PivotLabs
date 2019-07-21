@@ -121,6 +121,10 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     //and it is updated in the database
     override fun markAppointmentAsTaken() {
         chosenAppointment!!.appointment.taken = true
+        model.updateAppointmentInRemote(professional_id,
+                                        patientAppointment.date,
+                                        patientAppointment.dayPeriod,
+                                        chosenAppointment!!)
     }
 
     override fun makeViewShowToast(message: String) {

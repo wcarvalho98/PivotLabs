@@ -15,6 +15,7 @@ import kotlin.collections.ArrayList
 class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) : ProfessionalDetailMVP.ProfessionalDetailModelImpl{
 
 
+
     private var user =  FirebaseAuth.getInstance()
     private var patientAppointmentRef = FirebaseDatabase.getInstance().getReference("patient_appointment")
 
@@ -32,6 +33,17 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
                     presenter.makeViewShowToast(R.string.text_storing_problem)
                 }
             }
+    }
+
+    override fun updateAppointmentInRemote(
+        doctorId: String,
+        date: String,
+        dayPeriod: String,
+        indentifiedAp: IndentifiedAppointment
+    ) {
+        val pathToAp = "doctor_schedules/"+doctorId+"/"+date+"/"+dayPeriod+"/"+indentifiedAp.id
+        val dbRef = FirebaseDatabase.getInstance().getReference(pathToAp)
+        dbRef.child("taken").setValue(indentifiedAp.appointment.taken)
     }
 
     class RequestSchedulesFromRemote(var presenter:ProfessionalDetailMVP.ProfessionalDetailPresenterImpl) : AsyncTask<Void,Void,ArrayList<DaySchedule>>(){

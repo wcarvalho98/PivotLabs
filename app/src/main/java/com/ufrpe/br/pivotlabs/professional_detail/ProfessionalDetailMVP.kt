@@ -79,6 +79,7 @@ interface ProfessionalDetailMVP{
     interface ProfessionalDetailModelImpl{
         fun fetchAllSchedules():ArrayList<DaySchedule>
         fun storeAppointmentInRemote(patientAppointment: PatientAppointment)
+        fun updateAppointmentInRemote(doctorId:String,date:String,dayPeriod: String,indentifiedAp:IndentifiedAppointment)
     }
 
 
