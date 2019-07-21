@@ -22,11 +22,19 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
 
     override fun fetchAllSchedules(): ArrayList<DaySchedule> = RequestSchedulesFromRemote(presenter).execute().get()
 
+
+    /*override fun fetchAllAvailableDoctorAppointments(
+        doctorId: String,
+        date: String,
+        dayPeriod: String
+    ): ArrayList<IndentifiedAppointment> = RequestAvailableAppointmentsFromRemote(doctorId,date,dayPeriod,presenter).execute().get()*/
+
+
     /**
      * This method performs the storing of the appointment in the remote database
      */
     override fun storeAppointmentInRemote(patientAppointment: PatientAppointment) {
-        patientAppointmentRef.child(user.currentUser!!.uid).setValue(patientAppointment)
+        patientAppointmentRef.child(user.currentUser!!.uid).push().setValue(patientAppointment)
             .addOnCompleteListener{
                 if(it.isSuccessful){
                     presenter.makeViewShowToast(R.string.text_storing_success)
@@ -100,7 +108,41 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
             presenter.populateSchedulesList(listDaySchedule)
             return listDaySchedule
         }
-
     }
+
+    /*class RequestAvailableAppointmentsFromRemote(
+                                                val doctorId: String,
+                                                val date: String,
+                                                val dayPeriod: String,
+                                                val presenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl)
+                                                : AsyncTask<Void,Void,ArrayList<IndentifiedAppointment>>(){
+        private val dataBaseRef = FirebaseDatabase.getInstance().getReference("doctor_schedules/"+
+                                                                              doctorId+"/"+
+                                                                                date+"/"+
+                                                                                dayPeriod)
+
+        override fun doInBackground(vararg params: Void?): ArrayList<IndentifiedAppointment> {
+            var values = ArrayList<IndentifiedAppointment>(5)
+            dataBaseRef.addValueEventListener(object: ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+
+                    for(child in p0.children){
+                        val key = child.key.toString()
+                        values.add(IndentifiedAppointment(key,child.getValue(Appointment::class.java)!!))
+
+                    }
+
+                    presenter.populateIndentifiedAppointmentList(values)
+                }
+
+            })
+            return values
+        }
+
+    }*/
 
 }

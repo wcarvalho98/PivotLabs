@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.ufrpe.br.pivotlabs.beans.*
 import com.ufrpe.br.pivotlabs.professional_detail.view.ProfessionalDetailActivity
+import java.util.*
+import kotlin.collections.ArrayList
 
 interface ProfessionalDetailMVP{
     /**
@@ -61,6 +63,8 @@ interface ProfessionalDetailMVP{
         fun setProfessionalId(key:String)
         fun setView(activity: ProfessionalDetailActivity)
         fun setFragment(fragment: Fragment)
+        fun setTemporaryVariablesFromIndentifiedAppointment(iA:ArrayList<IndentifiedAppointment>,index : Int)
+        fun resetTemporaryVariablesFromIndentifiedAppointment()
         fun populateSchedulesList(listDaySchedules : ArrayList<DaySchedule>)
         fun populateDayPeriodList(listDayPeriod : ArrayList<DayPeriod>)
         fun populateIndentifiedAppointmentList(listIndentifiedAppointment: ArrayList<IndentifiedAppointment>)
@@ -78,9 +82,9 @@ interface ProfessionalDetailMVP{
 
     interface ProfessionalDetailModelImpl{
         fun fetchAllSchedules():ArrayList<DaySchedule>
+        //fun fetchAllAvailableDoctorAppointments(doctorId: String,date: String,dayPeriod: String):ArrayList<IndentifiedAppointment>
         fun storeAppointmentInRemote(patientAppointment: PatientAppointment)
         fun updateAppointmentInRemote(doctorId:String,date:String,dayPeriod: String,indentifiedAp:IndentifiedAppointment)
     }
-
 
 }
