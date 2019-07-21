@@ -22,7 +22,9 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
 
     override fun fetchAllSchedules(): ArrayList<DaySchedule> = RequestSchedulesFromRemote(presenter).execute().get()
 
-
+    /**
+     * This method performs the storing of the appointment in the remote database
+     */
     override fun storeAppointmentInRemote(patientAppointment: PatientAppointment) {
         patientAppointmentRef.child(user.currentUser!!.uid).setValue(patientAppointment)
             .addOnCompleteListener{
@@ -35,6 +37,11 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
             }
     }
 
+    /**
+     * This method updates the status of a specific appointment chosen by the user
+     * by building the path to it on a string
+     * and the setting a new value for the child element: "taken"
+     */
     override fun updateAppointmentInRemote(
         doctorId: String,
         date: String,

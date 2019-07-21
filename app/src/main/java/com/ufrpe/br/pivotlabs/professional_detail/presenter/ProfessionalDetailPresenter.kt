@@ -91,17 +91,22 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         return doctor
     }
 
-    //Methods destined to be called when all the different elements of the appointment are being chosen
+    /**This method is called by the adapter of Date
+     * when the Date object is chosen by the user
+     * */
     override fun onDateChosen(date: String) {
         this.patientAppointment.date = date
     }
 
+    /**This method is called by the adapter of DayPeriod
+     * when the DayPeriod object is chosen by the user
+     * */
     override fun onDayPeriodChosen(dayPeriod: String) {
         this.patientAppointment.dayPeriod = dayPeriod
     }
 
-    //Here, The appointment object of the appointment chosen has already been built
-    //therefore it can be stored in remote
+    /**Here, The appointment object of the appointment chosen has already been built
+    therefore it can be stored in remote*/
     override fun onAppointmentChosen(appointment: IndentifiedAppointment) {
         chosenAppointment = appointment
         view.showDialog()
@@ -112,13 +117,17 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         model.storeAppointmentInRemote(this.patientAppointment)
     }
 
+
+    /**This mehtod is called by dialog message button click listener
+     * for when the user opts not do schedule an appointment
+     * */
     override fun cancelAppointmentSaving() {
         chosenAppointment = null
         this.patientAppointment.apointmentId = ""
     }
 
-    //When the storing of the appointment is successful the appointment is marked as taken
-    //and it is updated in the database
+    /**When the storing of the appointment is successful the appointment is marked as taken
+    and it is updated in the database*/
     override fun markAppointmentAsTaken() {
         chosenAppointment!!.appointment.taken = true
         model.updateAppointmentInRemote(professional_id,
@@ -127,6 +136,9 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
                                         chosenAppointment!!)
     }
 
+
+    /**These methods are called by the model in order to make the view display
+    a message for storing success or failiure*/
     override fun makeViewShowToast(message: String) {
         view.showToast(message)
     }

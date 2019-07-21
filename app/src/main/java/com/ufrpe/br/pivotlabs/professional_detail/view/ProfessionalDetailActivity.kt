@@ -142,7 +142,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         dialog.show()
     }
 
-    //Creating toasts for success of storing data
+    //Creating toasts of storing data message (Success or failiure)
     override fun showToast(message: String) {
         Toast.makeText(this,message,Toast.LENGTH_LONG).show()
     }
