@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.beans.DayPeriod
 import com.ufrpe.br.pivotlabs.beans.DaySchedule
@@ -68,7 +69,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     }
 
     override fun returnToMainActivity() {
-        var intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         this.finish()
     }
@@ -84,8 +85,9 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     override fun switchToDayPeriodFragment(dayPeriod: ArrayList<DayPeriod>) {
         val newFragment = DayPeriodFragment(dayPeriod,presenter,this)
         val transaction  = supportFragmentManager.beginTransaction()
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
         transaction.remove(activityFragment)
-        transaction.add(R.id.flFragmentContent,newFragment,null).commit()
+        transaction.add(R.id.flFragmentContent, newFragment,null).commit()
         //transaction.replace(R.id.flFragmentContent,newFragment).commit()
         activityFragment = newFragment
     }
@@ -93,7 +95,8 @@ class ProfessionalDetailActivity : AppCompatActivity(),
     override fun switchToAppointmentFragment(appointment: ArrayList<IndentifiedAppointment>) {
         val newFragment = AppointmentFragment(appointment,presenter,this)
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.flFragmentContent,newFragment,null).commit()
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        transaction.add(R.id.flFragmentContent, newFragment,null).commit()
         appointmentFragment = newFragment
     }
 
@@ -104,6 +107,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
      * */
     override fun returnFromAppointmentFragment() {
         val transaction = supportFragmentManager.beginTransaction()
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
         transaction.remove(appointmentFragment).commit()
     }
 
@@ -112,7 +116,9 @@ class ProfessionalDetailActivity : AppCompatActivity(),
      * */
     override fun initializeDayScheduleFragment(){
         activityFragment = DayScheduleFragment(presenter,this)
-        supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,activityFragment).commit()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        transaction.replace(R.id.flFragmentContent, activityFragment).commit()
     }
 
     /**
@@ -124,7 +130,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
 
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog .setCancelable(false)
+        dialog.setCancelable(false)
 
         //var view = layoutInflater.inflate(R.layout.dialog_schedule_appointment,null)
         dialog.setContentView(R.layout.dialog_schedule_appointment)
@@ -144,10 +150,10 @@ class ProfessionalDetailActivity : AppCompatActivity(),
 
     //Creating toasts of storing data message (Success or failiure)
     override fun showToast(message: String) {
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     override fun showToast(message: Int) {
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }

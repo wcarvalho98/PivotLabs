@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">PivotLabs</string>
     <string name="title_activity_login">Sign in</string>
     <string name="txt_sign_up">Cadastre-se</string>
     <string name="txt_register">Cadastrar</string>
@@ -82,4 +81,6 @@
     <string name="text_storing_success">Os dados foram salvo com sucesso</string>
 
     <string name="text_appointment_taken">Desculpe mas esta consulta já foi marcada</string>
+    <string name="available_days">Dias Disponíveis</string>
+    <string name="ok">OK</string>
 </resources>

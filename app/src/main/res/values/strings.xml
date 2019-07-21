@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PivotLabs</string>
+    <string name="app_name" translatable="false">PivotLabs</string>
     <string name="title_activity_login">Sign in</string>
     <string name="txt_sign_up">Sign up</string>
     <string name="txt_register">Register</string>
@@ -84,5 +84,7 @@
     <string name="text_storing_problem">There has been a problem while trying to save the appointment to remote</string>
     <string name="text_storing_success">The data has been successfully stored in the dataset</string>
     <string name="text_appointment_taken">Sorry, but the data is already taken</string>
+    <string name="available_days">Available Days</string>
+    <string name="ok">OK</string>
 
 </resources>

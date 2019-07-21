@@ -9,7 +9,8 @@
             android:textColor="#ff0000"
             android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"/>
 
     <TextView
             android:text="@string/text_dialog"
@@ -18,11 +19,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     <LinearLayout
-            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" style="?android:attr/buttonBarStyle"
+            android:layout_marginVertical="16dp">
 
         <Button
                 android:id="@+id/btnDialogCancel"
@@ -30,15 +31,14 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" style="?android:attr/buttonBarStyle" android:textAllCaps="true"/>
         <Button
                 android:id="@+id/btnDialogOk"
-                android:text="OK"
-                android:textSize="10pt"
+                android:text="@string/ok"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" style="?android:attr/buttonBarStyle"/>
 
 
     </LinearLayout>

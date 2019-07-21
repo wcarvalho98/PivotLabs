@@ -31,9 +31,6 @@ class DayPeriodFragment(var dayPeriodList: ArrayList<DayPeriod>,
     }
     private lateinit var rvDayPeriods: RecyclerView
     private lateinit var imgBtnBackToSchedulesList : ImageButton
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view  = inflater.inflate(R.layout.fragment_day_period,container,false)
