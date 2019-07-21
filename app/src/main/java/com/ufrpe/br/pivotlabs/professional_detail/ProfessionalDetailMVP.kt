@@ -70,6 +70,7 @@ interface ProfessionalDetailMVP{
         fun onAppointmentChosen(appointment: IndentifiedAppointment)
         fun saveAppointmentInRemote()
         fun cancelAppointmentSaving()
+        fun markAppointmentAsTaken()
         fun makeViewShowToast(message:String)
         fun makeViewShowToast(message:Int)
     }

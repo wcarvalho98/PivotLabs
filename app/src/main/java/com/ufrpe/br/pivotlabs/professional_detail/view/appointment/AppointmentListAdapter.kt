@@ -34,10 +34,21 @@ class AppointmentListAdapter(var items: ArrayList<IndentifiedAppointment>,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvStart.text  = items[position].appointment.start
         holder.tvFinish.text  = items[position].appointment.finish
-        holder.btnChooseAppointment.setOnClickListener{
-            //Triggering the action of store the appointment scheduled in the
-            //data base
-            presenter.onAppointmentChosen(items[position])
+
+        if(!items[position].appointment.taken){
+            //If the appointment is not already taken
+            holder.btnChooseAppointment.setOnClickListener{
+                //Triggering the action of store the appointment scheduled in the
+                //data base
+                presenter.onAppointmentChosen(items[position])
+            }
+        }
+        else{
+            holder.btnChooseAppointment.setText(R.string.text_taken)
+            holder.btnChooseAppointment.setOnClickListener{
+                //Triggering toast message saying the appointment is already taken
+                presenter.makeViewShowToast(R.string.text_appointment_taken)
+            }
         }
     }
 

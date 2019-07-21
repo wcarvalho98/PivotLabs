@@ -83,5 +83,6 @@
 
     <string name="text_storing_problem">There has been a problem while trying to save the appointment to remote</string>
     <string name="text_storing_success">The appointment has been successfully stored in the dataset</string>
+    <string name="text_appointment_taken">Sorry, but this appointment is already taken</string>
 
 </resources>

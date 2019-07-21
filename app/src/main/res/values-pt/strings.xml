@@ -80,4 +80,6 @@
 
     <string name="text_storing_problem">Houve um problema ao tentar salvar o agendamento no banco de dados remoto</string>
     <string name="text_storing_success">O agendamento foi salvo com sucesso</string>
+
+    <string name="text_appointment_taken">Desculpe mas esta consulta já foi marcada</string>
 </resources>

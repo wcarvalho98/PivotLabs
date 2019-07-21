@@ -12,10 +12,10 @@ import com.ufrpe.br.pivotlabs.professional_detail.view.day_period.DayPeriodFragm
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.DaySchedulesFragmentImpl
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.AppointmentFragmentImpl
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.DayPeriodFragmentImpl
+import java.security.KeyStore
 import java.security.MessageDigest
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
-
 
     /**Implementation of the interface ProfessioanlDetailPresenterImpl
      */
@@ -23,6 +23,8 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     lateinit var professional_id :String
     var doctor  = Doctor()
     //Object to keep track of the appointment chosen
+    var chosenAppointment : IndentifiedAppointment? = null//auxiliary variable to be used is the storing of the patient
+    //appointment is successful
     var patientAppointment = PatientAppointment()
     private var daySchedules: ArrayList<DaySchedule> = ArrayList<DaySchedule>()
     private lateinit var view : ProfessionalDetailMVP.ProfessionalDetailViewImpl
@@ -101,8 +103,9 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     //Here, The appointment object of the appointment chosen has already been built
     //therefore it can be stored in remote
     override fun onAppointmentChosen(appointment: IndentifiedAppointment) {
+        chosenAppointment = appointment
         view.showDialog()
-        this.patientAppointment.apointmentId  = appointment.id
+        this.patientAppointment.apointmentId  = chosenAppointment!!.id
     }
 
     override fun saveAppointmentInRemote() {
@@ -110,7 +113,14 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
     }
 
     override fun cancelAppointmentSaving() {
+        chosenAppointment = null
         this.patientAppointment.apointmentId = ""
+    }
+
+    //When the storing of the appointment is successful the appointment is marked as taken
+    //and it is updated in the database
+    override fun markAppointmentAsTaken() {
+        chosenAppointment!!.appointment.taken = true
     }
 
     override fun makeViewShowToast(message: String) {
