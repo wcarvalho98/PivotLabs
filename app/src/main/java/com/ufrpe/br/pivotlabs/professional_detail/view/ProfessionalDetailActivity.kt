@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment
@@ -134,5 +135,13 @@ class ProfessionalDetailActivity : AppCompatActivity(),
             dialog.dismiss()
         }
         dialog.show()
+    }
+
+    override fun showToast(message: String) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+    }
+
+    override fun showToast(message: Int) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
     }
 }

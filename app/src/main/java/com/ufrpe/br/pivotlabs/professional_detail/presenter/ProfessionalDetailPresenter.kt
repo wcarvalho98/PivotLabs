@@ -12,8 +12,10 @@ import com.ufrpe.br.pivotlabs.professional_detail.view.day_period.DayPeriodFragm
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.DaySchedulesFragmentImpl
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.AppointmentFragmentImpl
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP.ProfessionalDetailViewImpl.DayPeriodFragmentImpl
+import java.security.MessageDigest
 
 class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPresenterImpl{
+
 
     /**Implementation of the interface ProfessioanlDetailPresenterImpl
      */
@@ -109,5 +111,13 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
 
     override fun cancelAppointmentSaving() {
         this.patientAppointment.apointmentId = ""
+    }
+
+    override fun makeViewShowToast(message: String) {
+        view.showToast(message)
+    }
+
+    override fun makeViewShowToast(message: Int) {
+        view.showToast(message)
     }
 }

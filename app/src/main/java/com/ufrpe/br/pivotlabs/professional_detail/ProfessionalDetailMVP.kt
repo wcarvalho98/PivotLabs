@@ -50,6 +50,8 @@ interface ProfessionalDetailMVP{
 
         //Auxiliary view methods showing dialogs and toasts for wen the appointment is selected
         fun showDialog()
+        fun showToast(message: String)
+        fun showToast(message: Int)
 
     }
 
@@ -68,6 +70,8 @@ interface ProfessionalDetailMVP{
         fun onAppointmentChosen(appointment: IndentifiedAppointment)
         fun saveAppointmentInRemote()
         fun cancelAppointmentSaving()
+        fun makeViewShowToast(message:String)
+        fun makeViewShowToast(message:Int)
     }
 
 

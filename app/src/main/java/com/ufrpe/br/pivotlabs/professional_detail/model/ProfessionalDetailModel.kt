@@ -7,6 +7,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.ufrpe.br.pivotlabs.R
 import com.ufrpe.br.pivotlabs.beans.*
 import com.ufrpe.br.pivotlabs.professional_detail.ProfessionalDetailMVP
 import kotlin.collections.ArrayList
@@ -25,10 +26,10 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
         patientAppointmentRef.child(user.currentUser!!.uid).setValue(patientAppointment)
             .addOnCompleteListener{
                 if(it.isSuccessful){
-
+                    presenter.makeViewShowToast(R.string.text_storing_success)
                 }
                 else{
-
+                    presenter.makeViewShowToast(R.string.text_storing_problem)
                 }
             }
     }
