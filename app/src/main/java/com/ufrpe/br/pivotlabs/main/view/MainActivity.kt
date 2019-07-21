@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
 
     override fun function(function: String) {
         tvFunction.text = function
-        AnimatorView().fade(tvFunction, true)
+        AnimatorView.fade(tvFunction, true)
     }
 
     override fun displayAboutActivity() {
