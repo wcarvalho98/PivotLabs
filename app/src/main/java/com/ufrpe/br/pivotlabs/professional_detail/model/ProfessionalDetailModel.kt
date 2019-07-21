@@ -30,9 +30,11 @@ class ProfessionalDetailModel(var presenter: ProfessionalDetailMVP.ProfessionalD
             .addOnCompleteListener{
                 if(it.isSuccessful){
                     presenter.makeViewShowToast(R.string.text_storing_success)
+                    presenter.markAppointmentAsTaken()
                 }
                 else{
                     presenter.makeViewShowToast(R.string.text_storing_problem)
+                    presenter.cancelAppointmentSaving()
                 }
             }
     }
