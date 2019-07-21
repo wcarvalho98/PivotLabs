@@ -3,6 +3,7 @@ package com.ufrpe.br.pivotlabs.main.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ufrpe.br.pivotlabs.R
+import com.ufrpe.br.pivotlabs.animator.AnimatorView
 import com.ufrpe.br.pivotlabs.main.MainMVP
 import com.ufrpe.br.pivotlabs.main.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(), MainMVP.ViewImpl {
 
     override fun function(function: String) {
         tvFunction.text = function
+        AnimatorView().fade(tvFunction, true)
     }
 
     override fun displayAboutActivity() {
