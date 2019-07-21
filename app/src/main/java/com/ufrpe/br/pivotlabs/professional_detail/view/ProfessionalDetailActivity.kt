@@ -115,6 +115,11 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         supportFragmentManager.beginTransaction().replace(R.id.flFragmentContent,activityFragment).commit()
     }
 
+    /**
+     * When the user chooses an appointment this method makes the view
+     * show a dialog message warning that if the user doesn't show up
+     * a tax will be charged on the user
+     */
     override fun showDialog(){
 
         val dialog = Dialog(this)
@@ -125,7 +130,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         dialog.setContentView(R.layout.dialog_schedule_appointment)
         val btnDialogOk = dialog.findViewById<Button>(R.id.btnDialogOk)
         btnDialogOk.setOnClickListener{
-            //presenter.saveAppointmentInRemote()
+            presenter.saveAppointmentInRemote()
             dialog.dismiss()
         }
 
@@ -137,6 +142,7 @@ class ProfessionalDetailActivity : AppCompatActivity(),
         dialog.show()
     }
 
+    //Creating toasts for success of storing data
     override fun showToast(message: String) {
         Toast.makeText(this,message,Toast.LENGTH_LONG).show()
     }
