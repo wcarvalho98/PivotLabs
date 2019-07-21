@@ -10,7 +10,7 @@ class AnimatorView {
             val fade = if (fadeIn) android.R.anim.fade_in else android.R.anim.fade_out
             val animation = AnimationUtils.loadAnimation(view.context, fade)
             view.animation = animation
-            view.animate().setDuration(android.R.integer.config_mediumAnimTime.toLong()).start()
+            view.animate().duration = android.R.integer.config_mediumAnimTime.toLong()
         }
 
         fun invisible(view: View, visible: Boolean) {

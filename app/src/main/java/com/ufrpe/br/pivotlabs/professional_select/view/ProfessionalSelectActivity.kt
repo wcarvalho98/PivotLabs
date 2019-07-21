@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ufrpe.br.pivotlabs.R
+import com.ufrpe.br.pivotlabs.animator.AnimatorView
 import com.ufrpe.br.pivotlabs.beans.Doctor
 import com.ufrpe.br.pivotlabs.professional_select.ProfessionalSelectMVP
 import com.ufrpe.br.pivotlabs.professional_select.presenter.ProfessionalSelectPresenter
@@ -24,8 +25,9 @@ class ProfessionalSelectActivity : AppCompatActivity(), ProfessionalSelectMVP.Vi
         btnSearch.setOnClickListener { fetchFilteredProfessionals() }
     }
 
-    /** Set the options for each dropdown to be used as speciality filter
-     * */
+    /**
+     * Set the options for each dropdown to be used as speciality filter
+     */
     private fun setSpinnerOptions(){
 
         val specialitySpinner = spnSpeciality
@@ -62,12 +64,13 @@ class ProfessionalSelectActivity : AppCompatActivity(), ProfessionalSelectMVP.Vi
      * Requests to the presenter a list of professionals with the given filters
      * and creates a new array adapter with the list of professionals updated
      * and displays it
-     * */
+     */
     override fun fetchFilteredProfessionals() {
         presenter.evaluateFetchfilteredProfetionals(spnSpeciality.selectedItem.toString())
+        AnimatorView.fade(rvDoctors, true)
     }
 
     override fun refreshDoctors(doctorKeys:ArrayList<String>,doctors: ArrayList<Doctor>) {
-        rvDoctors.adapter = ProfessionalAdapter(doctorKeys,doctors, this)
+        rvDoctors.adapter = ProfessionalAdapter(doctorKeys, doctors, this)
     }
 }
