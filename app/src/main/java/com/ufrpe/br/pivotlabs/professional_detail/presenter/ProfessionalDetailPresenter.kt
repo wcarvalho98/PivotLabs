@@ -113,8 +113,16 @@ class ProfessionalDetailPresenter : ProfessionalDetailMVP.ProfessionalDetailPres
         this.patientAppointment.apointmentId  = chosenAppointment!!.id
     }
 
+
+    /**This procedure accually calls models module to perform the saving of the chosen appointment in remote dataset
+     * This precedure is called when the user confirms its awareness of the existence of a tax that will be charged
+     * to it in case of no showing
+     * */
     override fun saveAppointmentInRemote() {
         model.storeAppointmentInRemote(this.patientAppointment)
+        populateIndentifiedAppointmentList(model.fetchAllAvailableDoctorAppointments(patientAppointment.doctorId,
+                                                                                     patientAppointment.date,
+                                                                                     patientAppointment.dayPeriod))
     }
 
 
